@@ -21,6 +21,7 @@ public class Log_inActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activ);
+        getSupportActionBar().hide();
         user = (EditText)findViewById(R.id.usuario);
         pass=(EditText)findViewById(R.id.pass);
         sincuenta = (TextView)findViewById(R.id.nocuenta);
