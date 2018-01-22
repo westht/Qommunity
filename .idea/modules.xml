@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Proyecto_Integrador_2DAM1718.iml" filepath="$PROJECT_DIR$/Proyecto_Integrador_2DAM1718.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/qommunity.iml" filepath="$PROJECT_DIR$/qommunity.iml" />
+      <module fileurl="file://C:\Users\Borja\AndroidStudioProjects\Proyecto_Integrador_2DAM1718\qommunity.iml" filepath="C:\Users\Borja\AndroidStudioProjects\Proyecto_Integrador_2DAM1718\qommunity.iml" />
     </modules>
   </component>
 </project>
