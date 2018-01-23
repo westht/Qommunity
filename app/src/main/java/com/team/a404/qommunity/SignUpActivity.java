@@ -39,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         log.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View view) {
         if (view == log){
