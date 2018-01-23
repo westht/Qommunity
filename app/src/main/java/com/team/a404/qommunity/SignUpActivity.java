@@ -51,17 +51,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String password =pass.getText().toString().trim();
         if (TextUtils.isEmpty(email)){
             // email is empty
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Introduzca el E-mail",Toast.LENGTH_SHORT).show();
             // para la ejecucion
             return;
         }
         if (TextUtils.isEmpty(password)){
             // password is empty
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Introduzca la contraseña",Toast.LENGTH_SHORT).show();
             // para la ejecucion
             return;
         }
-        progressDialog.setMessage("A Borja le gustan las traps.");
+        progressDialog.setMessage("Creando usuario.");
         progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
