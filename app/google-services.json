@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1092955822329",
+    "firebase_url": "https://qommunity-1d567.firebaseio.com",
+    "project_id": "qommunity-1d567",
+    "storage_bucket": "qommunity-1d567.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092955822329:android:534b95fdb72a3dc9",
+        "android_client_info": {
+          "package_name": "com.team.a404.qommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092955822329-q6afaf3ht7mtscs1fmpl3sf6iu5j6po9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4Rrzfuk6-IRRB22d0djjb-i-HtVnkmZA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
