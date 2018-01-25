@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".Log_inActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".SignUpActivity" android:parentActivityName=".Log_inActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".MainScreen" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
