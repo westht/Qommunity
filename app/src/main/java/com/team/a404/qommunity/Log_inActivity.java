@@ -45,6 +45,9 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
 
         if (firebaseAuth.getCurrentUser() != null) {
             //prfi
+            finish();
+            Intent intent1 = new Intent(Log_inActivity.this,MainScreen.class);
+            startActivity(intent1);
 
         }
         sincuenta.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +93,7 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
                         progressDialog.dismiss();
 
                         if (task.isSuccessful()){
+                            finish();
                             Intent intent1 = new Intent(Log_inActivity.this,MainScreen.class);
                             startActivity(intent1);
                         }
