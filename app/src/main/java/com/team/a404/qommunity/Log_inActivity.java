@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +26,7 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
     protected EditText pass;
     protected TextView sincuenta;
     protected Button log;
+    protected TextView nopass;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
@@ -39,14 +39,16 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
         pass = (EditText) findViewById(R.id.pass);
         sincuenta = (TextView) findViewById(R.id.nocuenta);
         log = (Button) findViewById(R.id.logbutt);
+        nopass = (TextView) findViewById(R.id.nopass);
         progressDialog = new ProgressDialog(this);
         log.setOnClickListener(this);
+        nopass.setOnClickListener(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
         if (firebaseAuth.getCurrentUser() != null) {
             //prfi
             finish();
-            Intent intent1 = new Intent(Log_inActivity.this,MainScreen.class);
+            Intent intent1 = new Intent(Log_inActivity.this, MainScreen.class);
             startActivity(intent1);
 
         }
@@ -65,41 +67,44 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
         if (view == log) {
             userLogin();
         }
+        if (view == nopass){
+            Intent intent = new Intent(Log_inActivity.this, ForgetPwd.class);
+            startActivity(intent);
+        }
     }
+
     private void userLogin() {
         String usr = user.getText().toString().trim();
         String pwd = pass.getText().toString().trim();
 
 
-        if (TextUtils.isEmpty(usr)){
+        if (TextUtils.isEmpty(usr)) {
             // email is empty
-            Toast.makeText(this,"Introduzca el E-mail",Toast.LENGTH_SHORT).show();
-            // para la ejecucion
+            Toast.makeText(this, "Introduzca el E-mail", Toast.LENGTH_SHORT).show();
             return;
+            // para la ejecucion
         }
-        if (TextUtils.isEmpty(pwd)){
+        if (TextUtils.isEmpty(pwd)) {
             // password is empty
-            Toast.makeText(this,"Introduzca la contraseña",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Introduzca la contraseña", Toast.LENGTH_SHORT).show();
             // para la ejecucion
             return;
         }
-        progressDialog.setMessage("Creando usuario.");
+        progressDialog.setMessage("Iniciando Sesion");
         progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(usr,pwd)
+        firebaseAuth.signInWithEmailAndPassword(usr, pwd)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             finish();
-                            Intent intent1 = new Intent(Log_inActivity.this,MainScreen.class);
+                            Intent intent1 = new Intent(Log_inActivity.this, MainScreen.class);
                             startActivity(intent1);
                         }
 
                     }
                 });
-
     }
 }

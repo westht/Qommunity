@@ -4,4 +4,5 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="no_tengo_una_cuenta">No tengo una cuenta.</string>
+    <string name="title_activity_forget_pwd">ForgetPwd</string>
 </resources>

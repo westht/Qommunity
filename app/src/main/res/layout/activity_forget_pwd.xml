@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_blaco">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="29dp"
+            android:layout_marginRight="29dp"
+            android:layout_marginTop="227dp"
+            android:layout_toLeftOf="@+id/correo"
+            android:layout_toStartOf="@+id/correo"
+            android:text="Correo Electronico:" />
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:text=""
+            android:textAlignment="center"
+            tools:text="alguien@example.com" />
+
+        <Button
+            android:id="@+id/boton_enviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/correo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="122dp"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="24dp"
+            android:text="Enviar" />
+
+</RelativeLayout>
