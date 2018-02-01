@@ -1,6 +1,7 @@
 package com.team.a404.qommunity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // se ha registrado
                         Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
+                        startActivity(new Intent(SignUpActivity.this, Log_inActivity.class));
+
                     } else {
                         Toast.makeText(SignUpActivity.this, "No ha podido registrarse, intentalo de nuevo", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
