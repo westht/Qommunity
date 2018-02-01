@@ -17,7 +17,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,16 +26,18 @@
         <activity
             android:name=".SignUpActivity"
             android:parentActivityName=".Log_inActivity"
+            android:label="Crear una cuenta"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainScreen"
             android:screenOrientation="portrait" />
-        <activity android:name=".SettingsActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ForgetPwd"
-            android:label="@string/title_activity_forget_pwd"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:parentActivityName=".SignUpActivity"
+            android:label="Recuperar contraseña" />
     </application>
 
 </manifest>

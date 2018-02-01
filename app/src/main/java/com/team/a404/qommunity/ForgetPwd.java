@@ -20,11 +20,10 @@ public class ForgetPwd extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pwd);
+
         Correo = (EditText) findViewById(R.id.correo);
         boton_enviar = (Button) findViewById(R.id.boton_enviar);
-
         firebaseAuth = FirebaseAuth.getInstance();
-
         boton_enviar.setOnClickListener(this);
 
     }
