@@ -20,13 +20,13 @@
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textColorLink="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/pass"
+        app:layout_constraintBottom_toTopOf="@+id/pass1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/pass1"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_marginBottom="50dp"
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toTopOf="@+id/logbutt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/pass1" />
 
     <TextView
         android:id="@+id/nocuenta"
@@ -75,6 +75,6 @@
         app:layout_constraintBottom_toTopOf="@+id/logbutt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/pass1" />
 
 </LinearLayout>

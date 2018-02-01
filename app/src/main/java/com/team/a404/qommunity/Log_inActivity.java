@@ -36,7 +36,7 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.login_activ);
         getSupportActionBar().hide();
         user = (EditText) findViewById(R.id.usuario);
-        pass = (EditText) findViewById(R.id.pass);
+        pass = (EditText) findViewById(R.id.pass1);
         sincuenta = (TextView) findViewById(R.id.nocuenta);
         log = (Button) findViewById(R.id.logbutt);
         nopass = (TextView) findViewById(R.id.nopass);
