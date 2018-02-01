@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -16,11 +17,20 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
 
     private FirebaseAuth firebaseAuth;
     private Button boton_logout;
+    private ImageButton settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
+        settings = (ImageButton)findViewById(R.id.imageButton);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainScreen.this,SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
 

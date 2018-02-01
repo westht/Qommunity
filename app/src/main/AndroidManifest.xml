@@ -30,6 +30,8 @@
         <activity
             android:name=".MainScreen"
             android:screenOrientation="portrait" />
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ForgetPwd"
             android:label="@string/title_activity_forget_pwd"
