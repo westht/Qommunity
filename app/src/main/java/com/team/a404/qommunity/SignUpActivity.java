@@ -73,7 +73,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // se ha registrado
                         Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
-
                     } else {
                         Toast.makeText(SignUpActivity.this, "No ha podido registrarse, intentalo de nuevo", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
