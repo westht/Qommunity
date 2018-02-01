@@ -33,7 +33,9 @@ public class ForgetPwd extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         if (view == boton_enviar){
             String text_correo = Correo.getText().toString();
-            firebaseAuth.sendPasswordResetEmail(text_correo);
+            if (text_correo.contains("@gmail") || text_correo.contains("@hotmail")) {
+                firebaseAuth.sendPasswordResetEmail(text_correo);
+            }
         }
     }
 }
