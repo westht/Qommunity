@@ -6,7 +6,7 @@
     android:background="@drawable/fondo_blaco">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/settingimage"
         android:layout_width="81dp"
         android:layout_height="63dp"
         android:layout_alignParentBottom="false"
