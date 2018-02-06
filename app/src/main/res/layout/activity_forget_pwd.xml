@@ -17,7 +17,7 @@
             android:backgroundTint="@color/ColorPrimario"
             android:ems="10"
             android:hint="Correo"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:textColorLink="@color/ColorPrimario"
             app:layout_constraintBottom_toTopOf="@+id/nocuenta"
             app:layout_constraintStart_toStartOf="@+id/usuario"

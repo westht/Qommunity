@@ -31,17 +31,18 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enter your full name"
-            android:id="@+id/et_name"/>
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter your address"
-            android:id="@+id/et_address"/>
+            android:hint="Introduce tu nombre completo" />
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Intorduce tu dirección" />
 
         <Button
             android:layout_width="match_parent"
