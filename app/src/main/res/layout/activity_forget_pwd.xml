@@ -9,34 +9,42 @@
     android:orientation="vertical">
 
 
-        <EditText
-            android:id="@+id/correo"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_marginTop="70dp"
-            android:backgroundTint="@color/ColorPrimario"
-            android:ems="10"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
-            android:textColorLink="@color/ColorPrimario"
-            app:layout_constraintBottom_toTopOf="@+id/nocuenta"
-            app:layout_constraintStart_toStartOf="@+id/usuario"
-            app:layout_constraintTop_toBottomOf="@+id/usuario" />
+            android:layout_height="match_parent">
 
+                <EditText
+                    android:id="@+id/correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="70dp"
+                    android:backgroundTint="@color/ColorPrimario"
+                    android:ems="10"
+                    android:hint="Correo"
+                    android:inputType="textEmailAddress"
+                    android:textColorLink="@color/ColorPrimario"
+                    app:layout_constraintBottom_toTopOf="@+id/nocuenta"
+                    app:layout_constraintStart_toStartOf="@+id/usuario"
+                    app:layout_constraintTop_toBottomOf="@+id/usuario" />
 
+                <Button
+                    android:id="@+id/boton_enviar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/colorAccent"
+                    android:text="restaurar contraseña"
+                    android:textColor="@android:color/background_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nocuenta" />
+        </FrameLayout>
 
-        <Button
-            android:id="@+id/boton_enviar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="70dp"
-            android:text="restaurar contraseña"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nocuenta" />
 
 </LinearLayout>
