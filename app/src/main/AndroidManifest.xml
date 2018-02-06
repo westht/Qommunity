@@ -35,6 +35,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
+            android:parentActivityName=".MainScreen"
+            android:label="Ajustes"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ForgetPwd"

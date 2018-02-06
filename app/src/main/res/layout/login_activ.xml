@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
-    android:background="@drawable/fondo_blaco"
+    android:background="@drawable/fondo_verde_q_login"
     android:orientation="vertical">
 
     <EditText
         android:id="@+id/usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_marginTop="104dp"
-        android:backgroundTint="@color/ColorPrimario"
-        android:ems="10"
-        android:hint="Usuario"
+
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginBottom="130dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+
+        android:backgroundTint="@color/ColorPrimario"
+        android:hint="Usuario"
         android:inputType="textPersonName"
         android:singleLine="false"
         android:textColorLink="@color/colorAccent"
@@ -31,13 +32,15 @@
     <EditText
         android:id="@+id/pass1"
         android:layout_width="match_parent"
+
         android:layout_height="49dp"
-        android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/ColorPrimario"
-        android:ems="10"
-        android:hint="Contraseña"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginBottom="70dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+
+        android:backgroundTint="@color/ColorPrimario"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         android:textColorLink="@color/ColorPrimario"
         app:layout_constraintBottom_toTopOf="@+id/nocuenta"
@@ -48,11 +51,15 @@
         android:id="@+id/logbutt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorAccent"
-        android:text="Iniciar Sesión"
+
+
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+
+        android:background="@color/colorAccent"
+        android:text="Iniciar Sesión"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +70,10 @@
         android:id="@+id/nopass"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginBottom="200dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="50dp"
+
+
         android:text="¿Olvídaste tu contraseña?"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
@@ -75,8 +85,11 @@
     <TextView
         android:id="@+id/nocuenta"
         android:layout_width="match_parent"
+
         android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="3dp"
+
         android:text="¿No tienes cuenta? Registrarte"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
@@ -85,4 +98,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass1" />
 
-</LinearLayout>
+</FrameLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,62 +10,55 @@
     tools:context="com.team.a404.qommunity.MainActivity">
 
 
-    <FrameLayout
+    <EditText
+        android:id="@+id/pass1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="110dp"
+        android:backgroundTint="@color/ColorPrimario"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColorLink="@color/ColorSecundario" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="50dp"
-            android:backgroundTint="@color/ColorPrimario"
-            android:ems="10"
-            android:hint="E-mail"
-            android:inputType="textPersonName"
-            android:textColorLink="@color/ColorSecundario" />
+    <EditText
+        android:id="@+id/pass2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="170dp"
+        android:backgroundTint="@color/ColorPrimario"
+        android:ems="10"
+        android:hint="Confirmar Contraseña"
+        android:inputType="textPassword"
+        android:textColorLink="@color/ColorSecundario" />
 
-        <EditText
-            android:id="@+id/pass1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="110dp"
-            android:backgroundTint="@color/ColorPrimario"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:textColorLink="@color/ColorSecundario" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/ColorPrimario"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:textColorLink="@color/ColorSecundario" />
 
-        <EditText
-            android:id="@+id/pass2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="170dp"
-            android:backgroundTint="@color/ColorPrimario"
-            android:ems="10"
-            android:hint="Confirmar Contraseña"
-            android:inputType="textPassword"
-            android:textColorLink="@color/ColorSecundario" />
+    <Button
+        android:id="@+id/crear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorAccent"
+        android:text="enviar datos"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
-        <Button
-            android:id="@+id/crear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@color/colorAccent"
-            android:text="enviar datos"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
-
-
-    </FrameLayout>
-
-</android.widget.LinearLayout>
+</FrameLayout>
