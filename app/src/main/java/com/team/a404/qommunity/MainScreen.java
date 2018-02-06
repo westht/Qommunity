@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +26,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
 
     private FirebaseAuth firebaseAuth;
     private Button boton_logout;
-    private ImageButton settings;
+    private ImageView settings;
     private DatabaseReference DataRef;
 
     private EditText et_name;
@@ -36,7 +37,7 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
         getSupportActionBar().hide();
-        settings = (ImageButton)findViewById(R.id.settings);
+        settings = (ImageView)findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
