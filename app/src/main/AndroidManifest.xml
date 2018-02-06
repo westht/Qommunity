@@ -27,7 +27,9 @@
             android:name=".SignUpActivity"
             android:parentActivityName=".Log_inActivity"
             android:label="Registrar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            />
         <activity
             android:name=".MainScreen"
             android:screenOrientation="portrait" />
@@ -37,7 +39,9 @@
         <activity
             android:name=".ForgetPwd"
             android:parentActivityName=".SignUpActivity"
-            android:label="Recuperar contraseña" />
+            android:label="Recuperar contraseña"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            />
     </application>
 
 </manifest>
