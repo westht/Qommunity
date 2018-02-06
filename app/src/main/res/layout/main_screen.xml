@@ -6,39 +6,29 @@
     android:background="@drawable/fondo_blaco">
 
 
-    <FrameLayout
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true">
-
-        <ImageButton
-            android:id="@+id/settingimage"
-            android:layout_width="68dp"
-            android:layout_height="63dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentRight="true"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-    </FrameLayout>
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/perfil"
-            android:text="Perfil"
-            android:layout_margin="20dp"
-            android:textAlignment="center"
-            android:textSize="26sp"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:text="Perfil"
+            android:textAlignment="center"
+            android:textSize="26sp" />
 
         <EditText
             android:id="@+id/et_name"
@@ -53,12 +43,12 @@
             android:hint="Intorduce tu dirección" />
 
         <Button
+            android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_enviar"
-            android:text="Guardar informacion"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
+            android:text="Guardar informacion" />
 
         <Button
             android:id="@+id/boton_logout"
@@ -68,5 +58,17 @@
             android:text="Logout" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/menu" />
 
 </RelativeLayout>

@@ -35,7 +35,8 @@ public class MainScreen extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
-        settings = (ImageButton)findViewById(R.id.settingimage);
+        getSupportActionBar().hide();
+        settings = (ImageButton)findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
