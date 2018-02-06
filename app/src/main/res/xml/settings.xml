@@ -5,10 +5,10 @@
         android:defaultValue="false"
         android:key="switch_preference_1"
         android:shadowColor="@color/colorAccent"
-        android:title="Ajuste 1" />
+        android:title="Botón Inútil" />
     <SwitchPreference
         android:defaultValue="false"
         android:key="switch_preference_2"
         android:shadowColor="@color/colorAccent"
-        android:title="Ajuste 2" />
+        android:title="Activar para amar a Linux" />
 </PreferenceScreen>

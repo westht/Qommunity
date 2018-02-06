@@ -5,14 +5,19 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_blaco">
 
-    <ImageButton
-        android:id="@+id/settingimage"
-        android:layout_width="81dp"
-        android:layout_height="63dp"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentRight="true"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/settingimage"
+            android:layout_width="81dp"
+            android:layout_height="63dp"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
+    </FrameLayout>
 
 
     <LinearLayout
