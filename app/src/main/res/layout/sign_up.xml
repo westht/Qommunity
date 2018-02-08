@@ -30,8 +30,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="170dp"
-        android:backgroundTint="@color/ColorPrimario"
         android:ems="10"
+        android:backgroundTint="@color/ColorPrimario"
+
         android:hint="Confirmar Contraseña"
         android:inputType="textPassword"
         android:textColorLink="@color/ColorSecundario" />
