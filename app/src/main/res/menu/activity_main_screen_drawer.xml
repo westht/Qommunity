@@ -12,20 +12,20 @@
             android:id="@+id/nav_mis_favores"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Mis favores" />
-        <item
-            android:id="@+id/mav_chats"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Chats" />
     </group>
 
     <item android:title="Opciones">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_chats"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Chats" />
+            <item
+                android:id="@+id/share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/opcions"
+                android:id="@+id/opciones"
                 android:icon="@drawable/icon_ajustes"
                 android:title="Ajustes" />
             <item

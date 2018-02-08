@@ -17,11 +17,10 @@
     <PreferenceCategory android:title="Perfil">
 
     </PreferenceCategory>
-    <EditTextPreference
-        android:defaultValue="Editarperfil"
-        android:key="edit_text_preference_1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="Editar perfil"
-        />
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@android:array/config_keySystemUuidMapping"
+        android:entryValues="@android:array/config_keySystemUuidMapping"
+        android:key="cambia"
+        android:title="List preference" />
 </PreferenceScreen>
