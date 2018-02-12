@@ -1,9 +1,14 @@
 package com.team.a404.qommunity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,8 +37,16 @@ public class MainScreen extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                final int request = 1;
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel: 644155881"));
+                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+                    if(ContextCompat.checkSelfPermission(MainScreen.this,android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+                       ActivityCompat.requestPermissions(MainScreen.this, new String[]{android.Manifest.permission.CALL_PHONE},request);
+                    }else{
+                        startActivity(callIntent);
+                    }
+                }
             }
         });
 
