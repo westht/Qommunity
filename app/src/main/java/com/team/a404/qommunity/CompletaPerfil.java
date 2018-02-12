@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,7 +53,7 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
 
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
-            Intent intent = new Intent(CompletaPerfil.this, Log_inActivity.class);
+            Intent intent = new Intent(CompletaPerfil.this, LoginActivity.class);
             startActivity(intent);
         }
         boton_logout = (Button) findViewById(R.id.boton_logout);
@@ -81,7 +80,7 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
         if (view == boton_logout) {
             finish();
             firebaseAuth.signOut();
-            Intent intent = new Intent(CompletaPerfil.this, Log_inActivity.class);
+            Intent intent = new Intent(CompletaPerfil.this, LoginActivity.class);
             startActivity(intent);
         }
         if (view == btn_enviar){

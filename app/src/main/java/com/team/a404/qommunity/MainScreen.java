@@ -94,10 +94,10 @@ public class MainScreen extends AppCompatActivity
         }else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
-            Intent intent = new Intent(MainScreen.this, Log_inActivity.class);
+            Intent intent = new Intent(MainScreen.this, LoginActivity.class);
             startActivity(intent);
 
-        } else if (id == R.id.opciones) {
+        } else if (id == R.id.opcions) {
             Intent intent = new Intent(MainScreen.this,SettingsActivity.class);
             startActivity(intent);
         }

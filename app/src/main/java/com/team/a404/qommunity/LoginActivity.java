@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
  * Created by Sergio Cuadrado on 22/01/2018.
  */
 
-public class Log_inActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     protected EditText user;
     protected EditText pass;
     protected TextView sincuenta;
@@ -48,14 +48,14 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
         if (firebaseAuth.getCurrentUser() != null) {
             //prfi
             finish();
-            Intent intent1 = new Intent(Log_inActivity.this, MainScreen.class);
+            Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
             startActivity(intent1);
 
         }
         sincuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Log_inActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
             userLogin();
         }
         if (view == nopass){
-            Intent intent = new Intent(Log_inActivity.this, ForgetPwd.class);
+            Intent intent = new Intent(LoginActivity.this, ForgetPwd.class);
             startActivity(intent);
         }
     }
@@ -100,7 +100,7 @@ public class Log_inActivity extends AppCompatActivity implements View.OnClickLis
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             finish();
-                            Intent intent1 = new Intent(Log_inActivity.this, MainScreen.class);
+                            Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
                             startActivity(intent1);
                         }
 

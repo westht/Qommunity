@@ -74,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // se ha registrado
                         Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
-                        startActivity(new Intent(SignUpActivity.this, Log_inActivity.class));
+                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
 
                     } else {
                         Toast.makeText(SignUpActivity.this, "No ha podido registrarse, intentalo de nuevo", Toast.LENGTH_SHORT).show();
