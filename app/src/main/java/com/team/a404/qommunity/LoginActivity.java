@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -80,13 +81,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (TextUtils.isEmpty(usr)) {
             // email is empty
-            Toast.makeText(this, "Introduzca el E-mail", Toast.LENGTH_SHORT).show();
+            Snackbar.make(log, "Introduzca el E-mail", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return;
             // para la ejecucion
         }
         if (TextUtils.isEmpty(pwd)) {
             // password is empty
-            Toast.makeText(this, "Introduzca la contraseña", Toast.LENGTH_SHORT).show();
+            Snackbar.make(log, "Introduzca la contraseña", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             // para la ejecucion
             return;
         }
@@ -102,6 +103,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             finish();
                             Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
                             startActivity(intent1);
+                        }else{
+                            Snackbar.make(log, "Datos Incorrectos", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                         }
 
                     }
