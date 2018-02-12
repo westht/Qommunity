@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
                     lottieAnimationView.playAnimation();
-                    sleep(3100);
+                    sleep(3050);
                 }catch (Exception e){
 
                 }
