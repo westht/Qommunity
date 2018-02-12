@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+    android:background="@color/ColorPrimario">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
-        app:lottie_colorFilter="@color/colorAccent"
-        app:lottie_fileName="data.json"
+        app:lottie_fileName="carga2.json"
         app:lottie_loop="true" />
 
 </FrameLayout>
