@@ -6,14 +6,13 @@ package com.team.a404.qommunity;
 
 public class UserInformation {
     public String name;
-    public String address;
+    public String email;
+    public String tel;
 
-    public UserInformation(){
 
-    }
-
-    public UserInformation(String name, String address) {
+    public UserInformation(String name, String email, String tel) {
         this.name = name;
-        this.address = address;
+        this.email = email;
+        this.tel = tel;
     }
 }

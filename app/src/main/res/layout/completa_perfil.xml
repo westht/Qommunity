@@ -7,12 +7,12 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/perfil"
@@ -25,40 +25,29 @@
             android:textSize="26sp" />
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Introduce tu nombre completo" />
+            android:hint="Nombre" />
 
         <EditText
-            android:id="@+id/et_address"
+            android:id="@+id/numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Intorduce tu dirección" />
+            android:hint="Nº de teléfono" />
 
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Guardar informacion" />
-
-        <Button
-            android:id="@+id/boton_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Logout" />
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorAccent"
+            android:text="@string/enviar_datos"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:text="Button" />
 
 </RelativeLayout>

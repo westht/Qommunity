@@ -2,6 +2,7 @@ package com.team.a404.qommunity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,24 +24,21 @@ import com.google.firebase.database.FirebaseDatabase;
 public class CompletaPerfil extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth firebaseAuth;
-    private Button boton_logout;
     private DatabaseReference DataRef;
 
     private EditText et_name;
-    private EditText et_adres;
+    private EditText telefono;
     private Button btn_enviar;
-    private Button chg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.completa_perfil);
         getSupportActionBar().hide();
-
-        et_name = (EditText) findViewById(R.id.et_name);
-        et_adres = (EditText) findViewById(R.id.et_address);
+        et_name = (EditText) findViewById(R.id.name);
+        telefono = (EditText) findViewById(R.id.numero);
         btn_enviar = (Button) findViewById(R.id.btn_enviar);
-        chg = (Button) findViewById(R.id.button2);
-        chg.setOnClickListener(new View.OnClickListener() {
+        btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CompletaPerfil.this,MainScreen.class);
@@ -56,35 +54,23 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(CompletaPerfil.this, LoginActivity.class);
             startActivity(intent);
         }
-        boton_logout = (Button) findViewById(R.id.boton_logout);
-
-        boton_logout.setOnClickListener(this);
         btn_enviar.setOnClickListener(this);
     }
 
     private void SalvarDatos(){
         String name = et_name.getText().toString().trim();
-        String address = et_adres.getText().toString().trim();
-
-        UserInformation user = new UserInformation(name,address);
-
+        String telf = telefono.getText().toString().trim();
         FirebaseUser usuario = firebaseAuth.getCurrentUser();
-
-        DataRef.child(usuario.getDisplayName()).setValue(user);
-
-
+        DataRef.child("usuarios").child(name).child("nombre").setValue(name);
+        DataRef.child("usuarios").child(name).child("telefono").setValue(telf);
+        DataRef.child("usuarios").child(name).child("email").setValue(usuario.getEmail());
         Toast.makeText(this, "Informacion guardada",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(CompletaPerfil.this,LoginActivity.class);
+        startActivity(intent);
     }
     @Override
     public void onClick(View view) {
-        if (view == boton_logout) {
-            finish();
-            firebaseAuth.signOut();
-            Intent intent = new Intent(CompletaPerfil.this, LoginActivity.class);
-            startActivity(intent);
-        }
-        if (view == btn_enviar){
             SalvarDatos();
-        }
+
     }
 }

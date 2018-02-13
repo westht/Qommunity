@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,8 +37,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mail = (EditText) findViewById(R.id.email);
         pass1 = (EditText) findViewById(R.id.pass1);
         pass2 = (EditText) findViewById(R.id.pass2);
-        nombre = (EditText)findViewById(R.id.Nombre);
-        telf=(EditText)findViewById(R.id.telefono);
         log = (Button) findViewById(R.id.crear);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -52,18 +51,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void registrar() {
-        String email = mail.getText().toString().trim();
-        String password1 = pass1.getText().toString().trim();
-        String password2 = pass2.getText().toString().trim();
-        String nom = nombre.getText().toString().trim();
-        String tel = telf.getText().toString().trim();
-        firebaseAuth = FirebaseAuth.getInstance();
-        DataRef = FirebaseDatabase.getInstance().getReference();
-        if (firebaseAuth.getCurrentUser() == null) {
-            finish();
-            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
+         String email = mail.getText().toString().trim();
+         String password1 = pass1.getText().toString().trim();
+         String password2 = pass2.getText().toString().trim();
+
+
 
         if (password1.equals(password2)){
             if (TextUtils.isEmpty(email)) {
@@ -79,6 +71,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 return;
             }
 
+
             progressDialog.setMessage("Creando usuario.");
             progressDialog.show();
             firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -88,8 +81,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // se ha registrado
                         Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
-                        DataRef.child("usuarios");
-                        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                        Intent intent = new Intent(SignUpActivity.this,CompletaPerfil.class);
+                        startActivity(intent);
+
 
 
                     } else {
@@ -102,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Toast.makeText(SignUpActivity.this, "La contraseña no coincide.", Toast.LENGTH_SHORT).show();
             progressDialog.hide();
         }
-
-
     }
 }
+
+
