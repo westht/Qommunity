@@ -11,24 +11,20 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/logo_qommunity" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="50dp">
-
-        <TextView
-            android:id="@+id/nopass"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginTop="50dp"
-
-
-            android:text="¿Olvídaste tu contraseña?"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/logbutt"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pass1" />
+        android:layout_marginTop="150dp">
 
         <Button
             android:id="@+id/logbutt"
@@ -36,11 +32,11 @@
             android:layout_height="wrap_content"
 
 
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginBottom="0dp"
+            android:layout_gravity="center_horizontal|top"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
 
+            android:layout_marginTop="170dp"
             android:background="@color/colorAccent"
             android:text="Iniciar Sesión"
             android:textColor="@android:color/background_light"
@@ -54,11 +50,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginBottom="130dp"
+            android:layout_gravity="center_horizontal|top"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
 
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/ColorPrimario"
             android:hint="Usuario"
             android:inputType="textPersonName"
@@ -90,11 +86,11 @@
             android:layout_width="match_parent"
 
             android:layout_height="49dp"
-            android:layout_gravity="center_horizontal|center"
-            android:layout_marginBottom="70dp"
+            android:layout_gravity="center_horizontal|top"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
 
+            android:layout_marginTop="90dp"
             android:backgroundTint="@color/ColorPrimario"
             android:hint="Contraseña"
             android:inputType="textPassword"
@@ -102,19 +98,23 @@
             app:layout_constraintBottom_toTopOf="@+id/nocuenta"
             app:layout_constraintStart_toStartOf="@+id/usuario"
             app:layout_constraintTop_toBottomOf="@+id/usuario" />
+
+        <TextView
+            android:id="@+id/nopass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal|top"
+
+
+            android:layout_marginTop="230dp"
+            android:text="¿Olvídaste tu contraseña?"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/logbutt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pass1" />
+
     </FrameLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/ColorPrimario">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            app:srcCompat="@drawable/qommunity" />
-    </RelativeLayout>
 
 </FrameLayout>
