@@ -6,96 +6,115 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
-    android:background="@drawable/fondo_verde_q_login"
+    android:background="@drawable/fondo_blaco"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/usuario"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp">
 
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginBottom="130dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        <TextView
+            android:id="@+id/nopass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginTop="50dp"
 
-        android:backgroundTint="@color/ColorPrimario"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:textColorLink="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/pass1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/pass1"
+            android:text="¿Olvídaste tu contraseña?"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/logbutt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pass1" />
+
+        <Button
+            android:id="@+id/logbutt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:background="@color/colorAccent"
+            android:text="Iniciar Sesión"
+            android:textColor="@android:color/background_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nocuenta" />
+
+        <EditText
+            android:id="@+id/usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginBottom="130dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:backgroundTint="@color/ColorPrimario"
+            android:hint="Usuario"
+            android:inputType="textPersonName"
+            android:singleLine="false"
+            android:textColorLink="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/pass1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nocuenta"
+            android:layout_width="match_parent"
+
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="3dp"
+
+            android:text="¿No tienes cuenta? Registrarte"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/logbutt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pass1" />
+
+        <EditText
+            android:id="@+id/pass1"
+            android:layout_width="match_parent"
+
+            android:layout_height="49dp"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:backgroundTint="@color/ColorPrimario"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColorLink="@color/ColorPrimario"
+            app:layout_constraintBottom_toTopOf="@+id/nocuenta"
+            app:layout_constraintStart_toStartOf="@+id/usuario"
+            app:layout_constraintTop_toBottomOf="@+id/usuario" />
+    </FrameLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/ColorPrimario">
 
-        android:layout_height="49dp"
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-
-        android:backgroundTint="@color/ColorPrimario"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:textColorLink="@color/ColorPrimario"
-        app:layout_constraintBottom_toTopOf="@+id/nocuenta"
-        app:layout_constraintStart_toStartOf="@+id/usuario"
-        app:layout_constraintTop_toBottomOf="@+id/usuario" />
-
-    <Button
-        android:id="@+id/logbutt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-
-        android:background="@color/colorAccent"
-        android:text="Iniciar Sesión"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nocuenta" />
-
-    <TextView
-        android:id="@+id/nopass"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal|center"
-        android:layout_marginTop="50dp"
-
-
-        android:text="¿Olvídaste tu contraseña?"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/logbutt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass1" />
-
-    <TextView
-        android:id="@+id/nocuenta"
-        android:layout_width="match_parent"
-
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="3dp"
-
-        android:text="¿No tienes cuenta? Registrarte"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/logbutt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass1" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            app:srcCompat="@drawable/qommunity" />
+    </RelativeLayout>
 
 </FrameLayout>
