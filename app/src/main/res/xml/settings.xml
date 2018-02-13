@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="General">
+    <PreferenceCategory android:title="@string/categoriaajuste_general">
 
     </PreferenceCategory>
     <SwitchPreference
@@ -14,7 +14,7 @@
         android:key="switch_preference_2"
         android:shadowColor="@color/colorAccent"
         android:title="Activar para amar a Linux" />
-    <PreferenceCategory android:title="Perfil">
+    <PreferenceCategory android:title="@string/categoriaajuste_perfil">
 
     </PreferenceCategory>
     <ListPreference
@@ -22,5 +22,8 @@
         android:entries="@android:array/config_keySystemUuidMapping"
         android:entryValues="@android:array/config_keySystemUuidMapping"
         android:key="cambia"
-        android:title="List preference" />
+        android:title="Ajustes de perfil" />
+    <PreferenceCategory android:title="@string/categoriaajuste_idioma">
+
+    </PreferenceCategory>
 </PreferenceScreen>
