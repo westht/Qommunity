@@ -18,8 +18,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,6 +83,34 @@ public class MainScreen extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
+        final TextView id_nombre = findViewById(R.id.id_nombre);
+        final TextView id_email = findViewById(R.id.id_email);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userRef = user.getUid();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
+        mDatabase.child(userRef).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<UserInformation> userlist=new ArrayList<UserInformation>();
+
+                UserInformation user=dataSnapshot.getValue(UserInformation.class);
+                userlist.add(user);
+
+
+                id_nombre.setText(user.getPersonName());
+                id_email.setText(user.getEmail());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
         return true;
     }
 

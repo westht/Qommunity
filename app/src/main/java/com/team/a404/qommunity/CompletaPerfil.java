@@ -61,9 +61,9 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
         String name = et_name.getText().toString().trim();
         String telf = telefono.getText().toString().trim();
         FirebaseUser usuario = firebaseAuth.getCurrentUser();
-        DataRef.child("usuarios").child(name).child("nombre").setValue(name);
-        DataRef.child("usuarios").child(name).child("telefono").setValue(telf);
-        DataRef.child("usuarios").child(name).child("email").setValue(usuario.getEmail());
+        DataRef.child("usuarios").child(usuario.getUid()).child("nombre").setValue(name);
+        DataRef.child("usuarios").child(usuario.getUid()).child("telefono").setValue(telf);
+        DataRef.child("usuarios").child(usuario.getUid()).child("email").setValue(usuario.getEmail());
         Toast.makeText(this, "Informacion guardada",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(CompletaPerfil.this,LoginActivity.class);
         startActivity(intent);

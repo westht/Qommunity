@@ -5,14 +5,25 @@ package com.team.a404.qommunity;
  */
 
 public class UserInformation {
-    public String name;
+    public String nombre;
     public String email;
     public String tel;
 
+    public UserInformation() {
+    }
 
-    public UserInformation(String name, String email, String tel) {
-        this.name = name;
+
+    public UserInformation(String nombre, String email, String tel) {
+        this.nombre = nombre;
         this.email = email;
         this.tel = tel;
+    }
+
+    public String getPersonName() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
