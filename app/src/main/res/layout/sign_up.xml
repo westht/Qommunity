@@ -10,46 +10,6 @@
     tools:context="com.team.a404.qommunity.MainActivity">
 
 
-    <EditText
-        android:id="@+id/pass1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="110dp"
-        android:backgroundTint="@color/ColorPrimario"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:textColorLink="@color/ColorSecundario" />
-
-    <EditText
-        android:id="@+id/pass2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="170dp"
-        android:ems="10"
-        android:backgroundTint="@color/ColorPrimario"
-
-        android:hint="Confirmar Contraseña"
-        android:inputType="textPassword"
-        android:textColorLink="@color/ColorSecundario" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="@color/ColorPrimario"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textPersonName"
-        android:textColorLink="@color/ColorSecundario" />
-
     <Button
         android:id="@+id/crear"
         android:layout_width="match_parent"
@@ -59,7 +19,67 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorAccent"
-        android:text="enviar datos"
+        android:text="@string/enviar_datos"
         android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="55dp">
+
+        <EditText
+            android:id="@+id/Nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="@color/ColorPrimario"
+            android:ems="10"
+            android:hint="@string/nombre"
+            android:inputType="textPersonName"
+            android:textColorLink="@color/ColorSecundario" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:backgroundTint="@color/ColorPrimario"
+            android:ems="10"
+            android:hint="@string/crea_e_mail"
+            android:inputType="textPersonName"
+            android:textColorLink="@color/ColorSecundario" />
+
+        <EditText
+            android:id="@+id/pass1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:backgroundTint="@color/ColorPrimario"
+            android:ems="10"
+            android:hint="@string/creapass"
+            android:inputType="textPassword"
+            android:textColorLink="@color/ColorSecundario" />
+
+        <EditText
+            android:id="@+id/pass2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+
+            android:backgroundTint="@color/ColorPrimario"
+            android:ems="10"
+
+            android:hint="@string/confirma_pass"
+            android:inputType="textPassword"
+            android:textColorLink="@color/ColorSecundario" />
+
+    </LinearLayout>
 
 </FrameLayout>

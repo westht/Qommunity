@@ -14,4 +14,9 @@
     <string name="categoriaajuste_general">General</string>
     <string name="categoriaajuste_perfil">Perfil</string>
     <string name="categoriaajuste_idioma">Idioma</string>
+    <string name="creapass">Contraseña</string>
+    <string name="confirma_pass">Confirmar Contraseña</string>
+    <string name="enviar_datos">enviar datos</string>
+    <string name="nombre">Nombre</string>
+    <string name="crea_e_mail">E-mail</string>
 </resources>

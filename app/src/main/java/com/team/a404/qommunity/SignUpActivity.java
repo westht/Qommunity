@@ -15,16 +15,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Sergio Cuadrado on 22/01/2018.
  */
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    protected EditText mail,pass1,pass2;
+    protected EditText mail,pass1,pass2,nombre;
     protected Button log;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference DataRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         mail = (EditText) findViewById(R.id.email);
         pass1 = (EditText) findViewById(R.id.pass1);
         pass2 = (EditText) findViewById(R.id.pass2);
+        nombre = (EditText)findViewById(R.id.Nombre);
         log = (Button) findViewById(R.id.crear);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -50,6 +54,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String email = mail.getText().toString().trim();
         String password1 = pass1.getText().toString().trim();
         String password2 = pass2.getText().toString().trim();
+        String nom = nombre.getText().toString().trim();
+        firebaseAuth = FirebaseAuth.getInstance();
+        DataRef = FirebaseDatabase.getInstance().getReference();
 
         if (password1.equals(password2)){
             if (TextUtils.isEmpty(email)) {
