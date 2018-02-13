@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    protected EditText mail,pass1,pass2,nombre;
+    protected EditText mail,pass1,pass2,nombre,telf;
     protected Button log;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -37,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         pass1 = (EditText) findViewById(R.id.pass1);
         pass2 = (EditText) findViewById(R.id.pass2);
         nombre = (EditText)findViewById(R.id.Nombre);
+        telf=(EditText)findViewById(R.id.telefono);
         log = (Button) findViewById(R.id.crear);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -55,8 +56,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String password1 = pass1.getText().toString().trim();
         String password2 = pass2.getText().toString().trim();
         String nom = nombre.getText().toString().trim();
+        String tel = telf.getText().toString().trim();
         firebaseAuth = FirebaseAuth.getInstance();
         DataRef = FirebaseDatabase.getInstance().getReference();
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
 
         if (password1.equals(password2)){
             if (TextUtils.isEmpty(email)) {
@@ -81,7 +88,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         // se ha registrado
                         Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
+                        DataRef.child("usuarios");
                         startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+
 
                     } else {
                         Toast.makeText(SignUpActivity.this, "No ha podido registrarse, intentalo de nuevo", Toast.LENGTH_SHORT).show();
