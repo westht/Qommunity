@@ -24,8 +24,6 @@ public class SettingsActivity extends PreferenceActivity {
         completa.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent intent = new Intent(SettingsActivity.this,CompletaPerfil.class);
-                startActivity(intent);
                 return true;
             }
         });

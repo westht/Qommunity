@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="100dp">
 
         <TextView
             android:id="@+id/perfil"
@@ -40,12 +41,12 @@
             android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginTop="200dp"
             android:background="@color/colorAccent"
-            android:text="@string/enviar_datos"
+            android:text="@string/completa_enviar"
             android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     </LinearLayout>

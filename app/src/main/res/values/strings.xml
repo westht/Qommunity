@@ -20,4 +20,5 @@
     <string name="nombre">Nombre</string>
     <string name="crea_e_mail">E-mail</string>
     <string name="crear_telf">Número de teléfono</string>
+    <string name="completa_enviar">Finalizar</string>
 </resources>
