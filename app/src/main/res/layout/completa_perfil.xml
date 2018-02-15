@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:text="Completa tu perfil"
+            android:text="@string/TextView_completa"
             android:textAlignment="center"
             android:textSize="26sp" />
 
@@ -29,20 +29,18 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre" />
+            android:hint="@string/completanombre" />
 
         <EditText
             android:id="@+id/numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nº de teléfono" />
+            android:hint="@string/completatelf" />
 
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginTop="200dp"
             android:background="@color/colorAccent"

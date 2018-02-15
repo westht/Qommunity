@@ -22,6 +22,9 @@ public class UserInformation {
     public String getPersonName() {
         return nombre;
     }
+    public String getTel(){
+        return tel;
+    }
 
     public String getEmail() {
         return email;

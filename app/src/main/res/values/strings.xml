@@ -21,4 +21,12 @@
     <string name="crea_e_mail">E-mail</string>
     <string name="crear_telf">Número de teléfono</string>
     <string name="completa_enviar">Finalizar</string>
+    <string name="TextView_completa">Completa tu perfil</string>
+    <string name="completatelf">Nº de teléfono</string>
+    <string name="completanombre">Nombre</string>
+    <string name="cambiaridiom">Cambiar a inglés</string>
+    <string name="ajuste1">Botón Inútil</string>
+    <string name="modificanombre">Nombre de Usuario</string>
+    <string name="numeromodifica">Número de teléfono</string>
+    <string name="modificaruser">Guardar Cambios</string>
 </resources>
