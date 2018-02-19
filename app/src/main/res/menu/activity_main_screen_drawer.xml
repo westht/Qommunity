@@ -7,11 +7,15 @@
         <item
             android:id="@+id/nav_inicio"
             android:icon="@drawable/icon_homepage"
-            android:title="Inicio" />
+            android:title="@string/inicio_drawer" />
         <item
             android:id="@+id/nav_mis_favores"
             android:icon="@drawable/icon_favores"
-            android:title="Mis favores" />
+            android:title="@string/favores_drawer" />
+        <item
+            android:id="@+id/nav_comunidades"
+            android:icon="@drawable/community"
+            android:title="@string/comunidades_drawer" />
         <item
             android:id="@+id/nav_chats"
             android:icon="@drawable/icon_chats"
@@ -27,11 +31,11 @@
             <item
                 android:id="@+id/opcions"
                 android:icon="@drawable/icon_ajustes"
-                android:title="Ajustes" />
+                android:title="@string/ajustes_drawer" />
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/icon_smartphone_bloqueado"
-                android:title="Cerrar Sesión" />
+                android:title="@string/logout_drawer" />
         </menu>
     </item>
 

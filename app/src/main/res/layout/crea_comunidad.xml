@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_blaco">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="100dp">
+
+        <TextView
+            android:id="@+id/perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:text="@string/textviewnuevacomuni"
+            android:textAlignment="center"
+            android:textSize="26sp" />
+
+        <EditText
+            android:id="@+id/comuninombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_nombrecomuni" />
+
+        <EditText
+            android:id="@+id/direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_direccion_comunidad" />
+
+        <Button
+            android:id="@+id/crearnueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="200dp"
+            android:background="@color/colorAccent"
+            android:text="@string/crearcomuni"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    </LinearLayout>
+</android.widget.RelativeLayout>

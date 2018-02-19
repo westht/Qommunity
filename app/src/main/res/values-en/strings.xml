@@ -5,8 +5,8 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="no_tengo_una_cuenta">I don\'t have an account.</string>
-    <string name="title_activity_forget_pwd">ForgetPwd</string>
-    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="title_activity_forget_pwd">Recover password</string>
+    <string name="title_activity_main_screen">Your Qommunity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
@@ -29,4 +29,14 @@
     <string name="numeromodifica">Phone number</string>
     <string name="modificaruser">Save Changes</string>
     <string name="labelmodifica">Profile Settings</string>
+    <string name="textviewnuevacomuni">Create a new Community</string>
+    <string name="hint_nombrecomuni">Community Name</string>
+    <string name="hint_direccion_comunidad">Address</string>
+    <string name="crearcomuni">Create</string>
+    <string name="inicio_drawer">Inicio</string>
+    <string name="favores_drawer">Mis favores</string>
+    <string name="comunidades_drawer">Comunidades</string>
+    <string name="ajustes_drawer">Ajustes</string>
+    <string name="logout_drawer">Cerrar Sesión</string>
+    <string name="title_activity_lista_comunidad">Communities</string>
 </resources>

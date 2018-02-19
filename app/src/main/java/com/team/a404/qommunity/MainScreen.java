@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +35,7 @@ public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth firebaseAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,23 +43,7 @@ public class MainScreen extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         firebaseAuth = FirebaseAuth.getInstance();
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final int request = 1;
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel: 644155881"));
-                if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
-                    if(ContextCompat.checkSelfPermission(MainScreen.this,android.Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
-                       ActivityCompat.requestPermissions(MainScreen.this, new String[]{android.Manifest.permission.CALL_PHONE},request);
-                    }else{
-                        startActivity(callIntent);
-                    }
-                }
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,6 +65,11 @@ public class MainScreen extends AppCompatActivity
         }
     }
 
+    public void crearComu(View view) {
+        Intent intenti = new Intent(this, CrearComunidad.class);
+        startActivity(intenti);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -91,9 +82,9 @@ public class MainScreen extends AppCompatActivity
         mDatabase.child(userRef).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<UserInformation> userlist=new ArrayList<UserInformation>();
+                ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
 
-                UserInformation user=dataSnapshot.getValue(UserInformation.class);
+                UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
 
 
@@ -108,26 +99,9 @@ public class MainScreen extends AppCompatActivity
         });
 
 
-
-
-
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -141,14 +115,16 @@ public class MainScreen extends AppCompatActivity
 
         } else if (id == R.id.nav_chats) {
 
-        }else if (id == R.id.logout) {
+        } else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
             Intent intent = new Intent(MainScreen.this, LoginActivity.class);
             startActivity(intent);
-
+        } else if (id == R.id.nav_comunidades) {
+            Intent intent = new Intent(MainScreen.this, ListaComunidad.class);
+            startActivity(intent);
         } else if (id == R.id.opcions) {
-            Intent intent = new Intent(MainScreen.this,SettingsActivity.class);
+            Intent intent = new Intent(MainScreen.this, SettingsActivity.class);
             startActivity(intent);
         }
 
