@@ -7,23 +7,23 @@ package com.team.a404.qommunity;
 public class UserInformation {
     public String nombre;
     public String email;
-    public String tel;
+    public String telefono;
 
     public UserInformation() {
     }
 
 
-    public UserInformation(String nombre, String email, String tel) {
+    public UserInformation(String nombre, String email, String telefono) {
         this.nombre = nombre;
         this.email = email;
-        this.tel = tel;
+        this.telefono = telefono;
     }
 
     public String getPersonName() {
         return nombre;
     }
     public String getTel(){
-        return tel;
+        return telefono;
     }
 
     public String getEmail() {

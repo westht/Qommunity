@@ -29,4 +29,5 @@
     <string name="modificanombre">Nombre de Usuario</string>
     <string name="numeromodifica">Número de teléfono</string>
     <string name="modificaruser">Guardar Cambios</string>
+    <string name="labelmodifica">Ajustes de Perfil</string>
 </resources>

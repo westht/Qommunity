@@ -7,10 +7,8 @@
     <string name="no_tengo_una_cuenta">I don\'t have an account.</string>
     <string name="title_activity_forget_pwd">ForgetPwd</string>
     <string name="title_activity_main_screen">MainScreen</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
     <string name="categoriaajuste_general">General</string>
     <string name="categoriaajuste_perfil">Profile</string>
@@ -27,7 +25,8 @@
     <string name="completanombre">Name</string>
     <string name="cambiaridiom">Switch to Spanish</string>
     <string name="ajuste1">Useless Button</string>
-    <string name="modificanombre">Nombre de Usuario</string>
-    <string name="numeromodifica">Número de teléfono</string>
-    <string name="modificaruser">Guardar Cambios</string>
+    <string name="modificanombre">Username</string>
+    <string name="numeromodifica">Phone number</string>
+    <string name="modificaruser">Save Changes</string>
+    <string name="labelmodifica">Profile Settings</string>
 </resources>

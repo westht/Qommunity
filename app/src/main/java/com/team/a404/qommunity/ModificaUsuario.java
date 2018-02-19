@@ -23,11 +23,12 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class ModificaUsuario extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference DataRef;
-    private TextView nombre,telefon;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    ;
+    private DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
+    private TextView nombre, telefon;
     private Button guarda;
-    private EditText nomb,telf;
+    private EditText nomb, telf;
     private ImageButton imagenperfil;
     FirebaseUser usuario = firebaseAuth.getCurrentUser();
 
@@ -35,15 +36,28 @@ public class ModificaUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifica_usuario);
-        getSupportActionBar().hide();
-        nombre = (TextView)findViewById(R.id.nombre);
-        telefon = (TextView)findViewById(R.id.numeromod);
-        nomb = (EditText)findViewById(R.id.nombremodifica);
-        telf = (EditText)findViewById(R.id.numeromodifica);
-        guarda=(Button)findViewById(R.id.cambia);
-        imagenperfil=(ImageButton)findViewById(R.id.perfilimage);
+        nombre = (TextView) findViewById(R.id.nombre);
+        telefon = (TextView) findViewById(R.id.numeromod);
+        nomb = (EditText) findViewById(R.id.nombremodifica);
+        telf = (EditText) findViewById(R.id.numeromodifica);
+        guarda = (Button) findViewById(R.id.cambia);
+        imagenperfil = (ImageButton) findViewById(R.id.perfilimage);
+        DataRef.child(usuario.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<UserInformation> userlist=new ArrayList<UserInformation>();
+                UserInformation user=dataSnapshot.getValue(UserInformation.class);
+                userlist.add(user);
+                nomb.setText(user.getPersonName());
+                telf.setText(user.getTel());
 
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         guarda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,15 +66,15 @@ public class ModificaUsuario extends AppCompatActivity {
         });
 
 
-
     }
-    private void GuardaDatos(){
+
+    private void GuardaDatos() {
         String nombre = nomb.getText().toString().trim();
         String numero = telf.getText().toString().trim();
-        DataRef.child("usuarios").child(usuario.getUid()).child("nombre").setValue(nombre);
-        DataRef.child("usuarios").child(usuario.getUid()).child("telefono").setValue(numero);
-        Toast.makeText(this, "Informacion guardada",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(ModificaUsuario.this,SettingsActivity.class);
+        DataRef.child(usuario.getUid()).child("nombre").setValue(nombre);
+        DataRef.child(usuario.getUid()).child("telefono").setValue(numero);
+        Toast.makeText(this, "Informacion guardada", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(ModificaUsuario.this, SettingsActivity.class);
         startActivity(intent);
     }
 }

@@ -52,6 +52,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ModificaUsuario"
             android:screenOrientation="portrait"
+            android:label="@string/labelmodifica"
             android:windowSoftInputMode="stateVisible|adjustResize"
             android:parentActivityName=".SettingsActivity"></activity>
 
