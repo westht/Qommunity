@@ -33,10 +33,10 @@
     <string name="hint_nombrecomuni">Community Name</string>
     <string name="hint_direccion_comunidad">Address</string>
     <string name="crearcomuni">Create</string>
-    <string name="inicio_drawer">Inicio</string>
-    <string name="favores_drawer">Mis favores</string>
-    <string name="comunidades_drawer">Comunidades</string>
-    <string name="ajustes_drawer">Ajustes</string>
-    <string name="logout_drawer">Cerrar Sesión</string>
+    <string name="inicio_drawer">Home</string>
+    <string name="favores_drawer">My Favors</string>
+    <string name="comunidades_drawer">Communities</string>
+    <string name="ajustes_drawer">Settings</string>
+    <string name="logout_drawer">Log-out</string>
     <string name="title_activity_lista_comunidad">Communities</string>
 </resources>
