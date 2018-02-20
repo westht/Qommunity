@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="140dp">
+        android:layout_marginTop="170dp">
 
         <TextView
             android:id="@+id/nombre"
@@ -51,10 +51,23 @@
             android:inputType="textPersonName" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/perfilimage"
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imagen"
         android:layout_width="117dp"
         android:layout_height="95dp"
-        android:layout_marginLeft="130dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_disabled" />
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/b1257038ce0a31052c74f7e7803d46d9" />
+
+    <Button
+        android:id="@+id/imagenperfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:text="@string/botoncambiaimagen"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"/>
 </android.widget.FrameLayout>

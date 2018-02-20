@@ -41,6 +41,7 @@
     <string name="logout_drawer">Cerrar Sesión</string>
     <string name="title_activity_lista_comunidad">Comunidades</string>
     <string name="title_MainListFvores">Mis Favores</string>
+    <string name="botoncambiaimagen">Cambiar imagen</string>
 
 
 </resources>
