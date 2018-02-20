@@ -51,6 +51,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".MainListFavores"
+            android:label="@string/title_MainListFvores"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".ModificaUsuario"
             android:label="@string/labelmodifica"
             android:parentActivityName=".SettingsActivity"
