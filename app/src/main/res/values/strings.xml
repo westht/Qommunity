@@ -42,6 +42,7 @@
     <string name="title_activity_lista_comunidad">Comunidades</string>
     <string name="title_MainListFvores">Mis Favores</string>
     <string name="botoncambiaimagen">Cambiar imagen</string>
+    <string name="title_activity_main_list_favores">MainListFavores</string>
 
 
 </resources>
