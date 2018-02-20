@@ -42,6 +42,7 @@ public class CrearComunidad extends AppCompatActivity {
         String nomb = nombre.getText().toString().trim();
         String direc = direccion.getText().toString().trim();
         FirebaseUser usuario = firebaseAuth.getCurrentUser();
+        DataRef.child("comunidades").child(nomb).child("nombre").setValue(nomb);
         DataRef.child("comunidades").child(nomb).child("direccion").setValue(direc);
         DataRef.child("comunidades").child(nomb).child("usuarios").child(usuario.getUid()).child("email").setValue(usuario.getEmail().replace("@", "").replace(".", ""));
         Toast.makeText(this, "Comunidad creada", Toast.LENGTH_LONG).show();
