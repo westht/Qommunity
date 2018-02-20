@@ -23,23 +23,23 @@ public class ListaComunidad extends AppCompatActivity {
     private ListView listacomuns;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference DataRef;
-    private ArrayList<CommunityInformation> comunidades;
+    private ArrayList<String> arraycomunidades = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_comunidad);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         firebaseAuth = FirebaseAuth.getInstance();
-        DataRef = FirebaseDatabase.getInstance().getReference();
-        listacomuns = (ListView)findViewById(R.id.listas);
-        setSupportActionBar(toolbar);
-        ArrayAdapter<CommunityInformation> arrayAdapter = new ArrayAdapter<CommunityInformation>(this,android.R.layout.simple_list_item_1, comunidades);
+        DataRef = FirebaseDatabase.getInstance().getReference("comunidades");
+        listacomuns = (ListView)findViewById(R.id.comunidades);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arraycomunidades);
         listacomuns.setAdapter(arrayAdapter);
         DataRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
+                CommunityInformation comun = dataSnapshot.getValue(CommunityInformation.class);
+                arraycomunidades.add(comun.getNombre()+"\n"+comun.getDireccion());
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
