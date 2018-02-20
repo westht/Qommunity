@@ -80,7 +80,6 @@ public class MainListFavores extends AppCompatActivity implements NavigationView
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
 
-
                 id_nombre.setText(user.getPersonName());
                 id_email.setText(user.getEmail());
             }
