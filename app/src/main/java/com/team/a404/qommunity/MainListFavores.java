@@ -13,8 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,17 +35,8 @@ public class MainListFavores extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_main_list_favores);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         firebaseAuth = FirebaseAuth.getInstance();
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -58,27 +58,43 @@ public class MainListFavores extends AppCompatActivity implements NavigationView
         }
     }
 
+    public void crearComu(View view) {
+        Intent intenti = new Intent(this, CrearComunidad.class);
+        startActivity(intenti);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_list_favores, menu);
+        getMenuInflater().inflate(R.menu.main_screen, menu);
+        final TextView id_nombre = findViewById(R.id.id_nombre);
+        final TextView id_email = findViewById(R.id.id_email);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userRef = user.getUid();
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
+        mDatabase.child(userRef).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
+
+                UserInformation user = dataSnapshot.getValue(UserInformation.class);
+                userlist.add(user);
+
+
+                id_nombre.setText(user.getPersonName());
+                id_email.setText(user.getEmail());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -119,3 +135,4 @@ public class MainListFavores extends AppCompatActivity implements NavigationView
         return true;
     }
 }
+

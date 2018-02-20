@@ -105,7 +105,7 @@ public class MainScreen extends AppCompatActivity
         if (id == R.id.nav_inicio) {
             // Handle the camera action
         } else if (id == R.id.nav_mis_favores) {
-            Intent intent = new Intent(MainScreen.this, MainListFavores2.class);
+            Intent intent = new Intent(MainScreen.this, MainListFavores.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

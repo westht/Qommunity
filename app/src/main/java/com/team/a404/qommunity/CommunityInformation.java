@@ -7,7 +7,10 @@ package com.team.a404.qommunity;
 public class CommunityInformation {
     private String nombre;
     private String direccion;
-    public CommunityInformation(){}
+
+    public CommunityInformation(){
+
+    }
     public CommunityInformation(String nombre, String direccion) {
         this.nombre = nombre;
         this.direccion = direccion;
