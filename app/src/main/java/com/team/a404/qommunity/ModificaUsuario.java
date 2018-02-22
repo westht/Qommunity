@@ -40,7 +40,6 @@ public class ModificaUsuario extends AppCompatActivity {
     private EditText nomb, telf;
     private Button imagenperfil;
     private CircularImageView imagen;
-    private Uri filepath;
     private static final int PICK_IMAGE_REQUEST = 100;
     Uri imageUri;
     StorageReference storageReference;
