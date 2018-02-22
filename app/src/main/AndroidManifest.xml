@@ -55,8 +55,7 @@
             android:name=".ModificaUsuario"
             android:label="@string/labelmodifica"
             android:parentActivityName=".SettingsActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible|adjustResize" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CrearComunidad"
             android:parentActivityName=".MainScreen"

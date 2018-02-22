@@ -18,11 +18,48 @@
         android:text="@string/modificaruser"
         android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loader.json"
+            app:lottie_loop="true" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imagen"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <Button
+            android:id="@+id/imagenperfil"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="130dp"
+            android:background="@color/colorAccent"
+            android:text="@string/botoncambiaimagen"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="170dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/nombre"
@@ -51,23 +88,5 @@
             android:inputType="textPersonName" />
     </LinearLayout>
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/imagen"
-        android:layout_width="117dp"
-        android:layout_height="95dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/b1257038ce0a31052c74f7e7803d46d9" />
 
-    <Button
-        android:id="@+id/imagenperfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:text="@string/botoncambiaimagen"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/colorAccent"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"/>
 </android.widget.FrameLayout>
