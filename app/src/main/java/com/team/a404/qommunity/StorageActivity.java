@@ -43,7 +43,6 @@ public class StorageActivity extends AppCompatActivity implements View.OnClickLi
     private TextView tvFileName;
     private ImageView imageView;
     private EditText edtFileName;
-
     private Uri fileUri;
     private Bitmap bitmap;
     private StorageReference imageReference;
@@ -101,6 +100,7 @@ public class StorageActivity extends AppCompatActivity implements View.OnClickLi
                             tvFileName.setText(taskSnapshot.getMetadata().getPath() + " - "
                                     + taskSnapshot.getMetadata().getSizeBytes() / 1024 + " KBs");
                             Toast.makeText(StorageActivity.this, "File Uploaded ", Toast.LENGTH_LONG).show();
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

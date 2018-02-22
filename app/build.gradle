@@ -31,5 +31,8 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:11.8.0'
     compile 'com.mikhaellopez:circularimageview:3.0.2'
     compile 'com.airbnb.android:lottie:2.0.0'
+
+
+
 }
 apply plugin: 'com.google.gms.google-services'
