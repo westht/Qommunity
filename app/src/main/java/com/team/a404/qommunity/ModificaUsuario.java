@@ -133,6 +133,7 @@ public class ModificaUsuario extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    DataRef.child(usuario.getUid()).child("urlfoto").setValue(downloadUrl.toString());
                     Log.d("downloadUrl-->", "" + downloadUrl);
 
                 }
