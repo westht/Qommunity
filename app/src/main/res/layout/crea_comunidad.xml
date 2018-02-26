@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_blaco">
+
+
+    <Button
+        android:id="@+id/crearnueva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/colorAccent"
+        android:text="@string/crearcomuni"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -26,23 +40,17 @@
             android:id="@+id/comuninombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:hint="@string/hint_nombrecomuni" />
 
         <EditText
             android:id="@+id/direccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:hint="@string/hint_direccion_comunidad" />
 
-        <Button
-            android:id="@+id/crearnueva"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="200dp"
-            android:background="@color/colorAccent"
-            android:text="@string/crearcomuni"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
-
     </LinearLayout>
-</android.widget.RelativeLayout>
+</FrameLayout>

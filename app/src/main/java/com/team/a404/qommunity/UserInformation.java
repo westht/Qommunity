@@ -12,7 +12,6 @@ public class UserInformation {
 
 
     public UserInformation() {
-
     }
 
     public UserInformation(String nombre, String email, String telefono,String urlphoto) {

@@ -119,8 +119,6 @@ public class MainScreen extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(MainScreen.this, ListaComunidad.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.opcions) {
             Intent intent = new Intent(MainScreen.this, SettingsActivity.class);
