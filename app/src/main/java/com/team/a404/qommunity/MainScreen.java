@@ -83,7 +83,7 @@ public class MainScreen extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
         final TextView id_nombre = findViewById(R.id.id_nombre);
-        final TextView id_email = findViewById(R.id.id_email);
+        //final TextView id_email = findViewById(R.id.id_email);
         FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
         String userRef = usero.getUid();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
@@ -94,8 +94,8 @@ public class MainScreen extends AppCompatActivity
 
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
-                id_nombre.setText(user.getPersonName());
-                id_email.setText(user.getEmail());
+                id_nombre.setText("Hola "+user.getPersonName());
+                //id_email.setText(user.getEmail());
 
 
 

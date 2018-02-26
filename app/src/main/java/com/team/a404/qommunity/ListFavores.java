@@ -100,7 +100,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         StrictMode.setThreadPolicy(policy);
         getMenuInflater().inflate(R.menu.main_screen, menu);
         final TextView id_nombre = findViewById(R.id.id_nombre);
-        final TextView id_email = findViewById(R.id.id_email);
+        //final TextView id_email = findViewById(R.id.id_email);
         FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
         String userRef = usero.getUid();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
@@ -112,8 +112,8 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
 
-                id_nombre.setText(user.getPersonName());
-                id_email.setText(user.getEmail());
+                id_nombre.setText("Hola "+user.getPersonName());
+                //id_email.setText(user.getEmail());
             }
 
             @Override
