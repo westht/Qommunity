@@ -40,4 +40,5 @@
     <string name="logout_drawer">Log-out</string>
     <string name="title_activity_lista_comunidad">Communities</string>
     <string name="botoncambiaimagen">Change profile picture</string>
+    <string name ="preferenceperfil">Profile Settings</string>
 </resources>

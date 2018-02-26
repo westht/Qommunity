@@ -1,5 +1,8 @@
 package com.team.a404.qommunity;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +42,18 @@ public class CrearComunidad extends AppCompatActivity {
     }
 
     protected void CrearComun() {
+        /*Intent intento = new Intent();
+        PendingIntent Pintent = PendingIntent.getActivity(CrearComunidad.this,0,intento,0);
+        Notification notifi = new Notification.Builder(CrearComunidad.this)
+                .setTicker("Ticker Title")
+                .setContentTitle("Content Title")
+                .setContentText("Content text")
+                .setSmallIcon(R.drawable.q)
+                .setContentIntent(Pintent).getNotification();
+
+        notifi.flags = Notification.FLAG_AUTO_CANCEL;
+        NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(0,notifi);*/
         String nomb = nombre.getText().toString().trim();
         String direc = direccion.getText().toString().trim();
         FirebaseUser usuario = firebaseAuth.getCurrentUser();

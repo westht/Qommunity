@@ -1,8 +1,14 @@
 package com.team.a404.qommunity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,7 +18,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,12 +30,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth firebaseAuth;
+
 
 
     @Override
@@ -36,7 +55,6 @@ public class MainScreen extends AppCompatActivity
         setSupportActionBar(toolbar);
         firebaseAuth = FirebaseAuth.getInstance();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -68,8 +86,8 @@ public class MainScreen extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main_screen, menu);
         final TextView id_nombre = findViewById(R.id.id_nombre);
         final TextView id_email = findViewById(R.id.id_email);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userRef = user.getUid();
+        FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
+        String userRef = usero.getUid();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
         mDatabase.child(userRef).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -78,10 +96,11 @@ public class MainScreen extends AppCompatActivity
 
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
-
-
                 id_nombre.setText(user.getPersonName());
                 id_email.setText(user.getEmail());
+
+
+
             }
 
             @Override
@@ -122,8 +141,6 @@ public class MainScreen extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.opcions) {
             Intent intent = new Intent(MainScreen.this, SettingsActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
 

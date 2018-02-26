@@ -58,7 +58,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CrearComunidad"
-            android:label="@string/textviewnuevacomuni"
             android:parentActivityName=".MainScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
@@ -71,7 +70,6 @@
             android:name=".ListFavores"
             android:label="@string/title_activity_list_favores"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ListFavores_Tab1"></activity>
     </application>
 
 </manifest>

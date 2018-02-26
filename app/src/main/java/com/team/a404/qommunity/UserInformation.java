@@ -8,17 +8,17 @@ public class UserInformation {
     public String nombre;
     public String email;
     public String telefono;
-    public String urlphoto;
+    public String urlfoto;
 
 
     public UserInformation() {
     }
 
-    public UserInformation(String nombre, String email, String telefono,String urlphoto) {
+    public UserInformation(String nombre, String email, String telefono,String urlfoto) {
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
-        this.urlphoto = urlphoto;
+        this.urlfoto = urlfoto;
     }
 
     public String getPersonName() {
@@ -32,6 +32,6 @@ public class UserInformation {
         return email;
     }
     public String getUrlphoto() {
-        return urlphoto;
+        return urlfoto;
     }
 }

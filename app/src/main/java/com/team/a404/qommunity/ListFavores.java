@@ -1,6 +1,10 @@
 package com.team.a404.qommunity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -24,6 +28,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +37,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -84,11 +96,13 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         getMenuInflater().inflate(R.menu.main_screen, menu);
         final TextView id_nombre = findViewById(R.id.id_nombre);
         final TextView id_email = findViewById(R.id.id_email);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String userRef = user.getUid();
+        FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
+        String userRef = usero.getUid();
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios");
         mDatabase.child(userRef).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

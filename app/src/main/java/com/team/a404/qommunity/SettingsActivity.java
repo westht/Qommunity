@@ -13,14 +13,14 @@ import android.os.Bundle;
 
 
 public class SettingsActivity extends PreferenceActivity {
-    private ListPreference completa;
+    private Preference completa;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
-        completa = (ListPreference) findPreference("cambia");
+        completa = (Preference) findPreference("cambia");
         completa.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
