@@ -75,10 +75,7 @@ public class MainScreen extends AppCompatActivity
         }
     }
 
-    public void crearComu(View view) {
-        Intent intenti = new Intent(this, CrearComunidad.class);
-        startActivity(intenti);
-    }
+
 
 
     @Override

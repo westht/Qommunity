@@ -25,6 +25,11 @@ public class ListaComunidad extends AppCompatActivity {
     private DatabaseReference DataRef;
     private ArrayList<String> arraycomunidades = new ArrayList<>();
 
+    public void crearComu(View view) {
+        Intent intenti = new Intent(this, CrearComunidad.class);
+        startActivity(intenti);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
