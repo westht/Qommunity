@@ -129,6 +129,7 @@
     <string name="crea_descfavor">Descripción del favor</string>
     <string name="diafavor">Día del favor</string>
     <string name="horafavor">Hora del favor</string>
+    <string name="nuevofavorbot">Crear Favor</string>
 
 
 </resources>

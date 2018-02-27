@@ -45,7 +45,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/colorAccent"
-        android:text="@string/modificaruser"
+        android:text="@string/nuevofavorbot"
         android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
 </LinearLayout>
