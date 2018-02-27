@@ -41,4 +41,8 @@
     <string name="title_activity_lista_comunidad">Communities</string>
     <string name="botoncambiaimagen">Change profile picture</string>
     <string name ="preferenceperfil">Profile Settings</string>
+    <string name="crea_nombfavor">Nombre</string>
+    <string name="crea_descfavor">Descripción del favor</string>
+    <string name="diafavor">Día del favor</string>
+    <string name="horafavor">Hora del favor</string>
 </resources>

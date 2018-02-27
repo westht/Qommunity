@@ -1,5 +1,6 @@
 package com.team.a404.qommunity.Favores;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
@@ -24,6 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,9 +49,11 @@ import java.util.ArrayList;
 public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private ViewPager mViewPager;
     private FloatingActionButton fab;
+    private EditText nombrefav, descfav, fechafav, horafav;
+    private Button creafav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +79,35 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListFavores.this, ListFavores_add.class);
-                startActivity(intent);
+                final Dialog dialog = new Dialog(ListFavores.this);
+                dialog.setTitle("Detalles del favor");
+                dialog.setContentView(R.layout.datosfavor);
+                dialog.show();
+                nombrefav = (EditText)dialog.findViewById(R.id.nombfavor);
+                descfav = (EditText)dialog.findViewById(R.id.descripfavor);
+                fechafav = (EditText)dialog.findViewById(R.id.diafavor);
+                horafav = (EditText)dialog.findViewById(R.id.horafavor);
+                creafav = (Button)dialog.findViewById(R.id.creafav);
+                final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
+                final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
+                creafav.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String nombre = nombrefav.getText().toString().trim();
+                        String desc = descfav.getText().toString().trim();
+                        String fecha = fechafav.getText().toString().trim();
+                        String hora = horafav.getText().toString().trim();
+                        mDatabase.child("yugi boy").child("favores").child(nombre).child("descripcion").setValue(desc);
+                        mDatabase.child("yugi boy").child("favores").child(nombre).child("fecha").setValue(fecha);
+                        mDatabase.child("yugi boy").child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase.child("yugi boy").child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
+                        dialog.hide();
+
+
+                    }
+                });
+
+
             }
         });
 

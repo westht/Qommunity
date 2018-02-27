@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/nombfavor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/crea_nombfavor"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/descripfavor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/crea_descfavor"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/diafavor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/diafavor"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/horafavor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/horafavor"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/creafav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorAccent"
+        android:text="@string/modificaruser"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+</LinearLayout>
+
+
