@@ -1,5 +1,6 @@
 package com.team.a404.qommunity.Favores;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.StrictMode;
@@ -26,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -45,6 +47,7 @@ import com.team.a404.qommunity.Ajustes.SettingsActivity;
 import com.team.a404.qommunity.Objetos.UserInformation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -52,12 +55,19 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private ViewPager mViewPager;
     private FloatingActionButton fab;
+    private int year_x,month_x,day_x;
     private EditText nombrefav, descfav, fechafav, horafav;
     private Button creafav;
+    static final int DIALOG_ID = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_list_favores);
+
+        final Calendar cal = Calendar.getInstance();
+        year_x = cal.get(Calendar.YEAR);
+        month_x = cal.get(Calendar.MONTH);
+        day_x = cal.get(Calendar.DAY_OF_MONTH);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,11 +95,20 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 dialog.show();
                 nombrefav = (EditText)dialog.findViewById(R.id.nombfavor);
                 descfav = (EditText)dialog.findViewById(R.id.descripfavor);
-                fechafav = (EditText)dialog.findViewById(R.id.diafavor);
+                fechafav = (EditText)dialog.findViewById(R.id.CogerFecha);
                 horafav = (EditText)dialog.findViewById(R.id.horafavor);
                 creafav = (Button)dialog.findViewById(R.id.creafav);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
+
+                fechafav.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showDialog(DIALOG_ID);
+                            }
+                        }
+                );
+
                 creafav.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -112,6 +131,8 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         });
 
 
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -122,6 +143,23 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
 
     }
+
+    protected Dialog onCreateDialog (int id){
+        if (id == DIALOG_ID){
+            return new DatePickerDialog(this, DateLisen, year_x,month_x,day_x);
+        }
+        return null;
+    }
+    private DatePickerDialog.OnDateSetListener DateLisen = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            year_x = year;
+            month_x = month +1;
+            day_x = day;
+            fechafav.setText(day_x+" / "+month_x+" / "+year_x);
+        }
+    };
+
 
 
     @Override

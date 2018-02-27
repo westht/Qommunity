@@ -19,6 +19,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/logo_qommunity" />
+
     </FrameLayout>
 
     <FrameLayout

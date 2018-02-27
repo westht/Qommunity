@@ -18,7 +18,7 @@ public class ListFavores_add extends AppCompatActivity {
         setContentView(R.layout.activity_list_favores_add);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setIcon(R.drawable.ic_arrow_down);
+        getSupportActionBar().setIcon(R.drawable.ic_keyboard_arrow_down_white_48dp);
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_listfavores_add,menu);

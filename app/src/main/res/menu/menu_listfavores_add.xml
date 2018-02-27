@@ -3,6 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/atras"
+        android:title="Atras"
+        app:showAsAction="always"
+
+        />
+
+
+    <item
         android:id="@+id/crear"
         android:title="Crear"
         app:showAsAction="always" />
