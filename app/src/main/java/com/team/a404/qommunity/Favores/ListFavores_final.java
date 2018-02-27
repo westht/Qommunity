@@ -1,4 +1,4 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Favores;
 
 
 import android.os.Bundle;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.team.a404.qommunity.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListFavores_my extends Fragment {
+public class ListFavores_final extends Fragment {
 
 
-    public ListFavores_my() {
+    public ListFavores_final() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class ListFavores_my extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_favores_my, container, false);
+        return inflater.inflate(R.layout.fragment_list_favores_final, container, false);
     }
 
 }

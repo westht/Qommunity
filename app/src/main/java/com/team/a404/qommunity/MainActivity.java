@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.airbnb.lottie.LottieAnimationView;
+import com.team.a404.qommunity.Login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

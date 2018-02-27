@@ -24,26 +24,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Login.SignUpActivity"
             android:label="Registrar"
-            android:parentActivityName=".LoginActivity"
+            android:parentActivityName=".Login.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".CompletaPerfil"
+            android:name=".Login.CompletaPerfil"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Ajustes.SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".CompletaPerfil"
+            android:parentActivityName=".Login.CompletaPerfil"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ForgetPwd"
+            android:name=".Login.ForgetPwd"
             android:label="@string/title_activity_forget_pwd"
-            android:parentActivityName=".SignUpActivity"
+            android:parentActivityName=".Login.SignUpActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
@@ -52,22 +52,22 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ModificaUsuario"
+            android:name=".Ajustes.ModificaUsuario"
             android:label="@string/labelmodifica"
-            android:parentActivityName=".SettingsActivity"
+            android:parentActivityName=".Ajustes.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CrearComunidad"
+            android:name=".Comunidad.CrearComunidad"
             android:parentActivityName=".MainScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".ListaComunidad"
+            android:name=".Comunidad.ListaComunidad"
             android:parentActivityName=".MainScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".ListFavores"
+            android:name=".Favores.ListFavores"
             android:label="@string/title_activity_list_favores"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

@@ -1,8 +1,5 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Comunidad;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.team.a404.qommunity.MainScreen;
+import com.team.a404.qommunity.R;
 
 public class CrearComunidad extends AppCompatActivity {
     private Button crear;

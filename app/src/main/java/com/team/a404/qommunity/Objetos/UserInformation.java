@@ -1,4 +1,4 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Objetos;
 
 /**
  * Created by Sergio Cuadrado on 01/02/2018.

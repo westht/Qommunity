@@ -1,4 +1,4 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,9 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.team.a404.qommunity.R;
 
 /**
  * Created by Sergio Cuadrado on 22/01/2018.

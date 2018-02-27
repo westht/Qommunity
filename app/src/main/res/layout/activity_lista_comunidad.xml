@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.team.a404.qommunity.ListaComunidad">
+    tools:context="com.team.a404.qommunity.Comunidad.ListaComunidad">
 
     <ListView
         android:id="@+id/comunidades"

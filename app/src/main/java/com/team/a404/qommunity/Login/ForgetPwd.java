@@ -1,4 +1,4 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Login;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.team.a404.qommunity.R;
 
 public class ForgetPwd extends AppCompatActivity implements View.OnClickListener{
 

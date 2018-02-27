@@ -1,10 +1,7 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Favores;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.StrictMode;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -28,8 +25,6 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,13 +32,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.mikhaellopez.circularimageview.CircularImageView;
+import com.team.a404.qommunity.Comunidad.CrearComunidad;
+import com.team.a404.qommunity.Comunidad.ListaComunidad;
+import com.team.a404.qommunity.Login.LoginActivity;
+import com.team.a404.qommunity.MainScreen;
+import com.team.a404.qommunity.R;
+import com.team.a404.qommunity.Ajustes.SettingsActivity;
+import com.team.a404.qommunity.Objetos.UserInformation;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

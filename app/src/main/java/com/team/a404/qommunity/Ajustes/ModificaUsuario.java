@@ -1,4 +1,4 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Ajustes;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,6 +27,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.team.a404.qommunity.R;
+import com.team.a404.qommunity.Objetos.UserInformation;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,15 +1,15 @@
-package com.team.a404.qommunity;
+package com.team.a404.qommunity.Ajustes;
 
 /**
  * Created by Sergio Cuadrado on 01/02/2018.
  */
 
 import android.content.Intent;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.os.Bundle;
+
+import com.team.a404.qommunity.R;
 
 
 public class SettingsActivity extends PreferenceActivity {

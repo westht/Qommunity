@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Proyecto_Integrador_2DAM1718.iml" filepath="$PROJECT_DIR$/Proyecto_Integrador_2DAM1718.iml" />
-      <module fileurl="file://D:\StudioProjects\Proyecto_Integrador_2DAM1718\Proyecto_Integrador_2DAM1718.iml" filepath="D:\StudioProjects\Proyecto_Integrador_2DAM1718\Proyecto_Integrador_2DAM1718.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\StudioProjects\Proyecto_Integrador_2DAM1718\app\app.iml" filepath="D:\StudioProjects\Proyecto_Integrador_2DAM1718\app\app.iml" />
     </modules>
   </component>
 </project>
