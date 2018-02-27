@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -100,7 +101,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 creafav = (Button)dialog.findViewById(R.id.creafav);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
-
+                fechafav.setInputType(InputType.TYPE_NULL);
                 fechafav.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
