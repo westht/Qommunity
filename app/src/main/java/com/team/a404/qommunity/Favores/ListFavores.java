@@ -107,7 +107,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 fechafav.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                showDialog(DIALOG_ID);
+                                showDialog(1);
                             }
                         }
                 );
@@ -115,7 +115,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 horafav.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                showDialog(DIALOG_ID);
+                                showDialog(2);
                             }
                         }
                 );
@@ -156,11 +156,11 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     }
 
     protected Dialog onCreateDialog (int id){
-        if (id == DIALOG_ID){
-            return new DatePickerDialog(this, DateLisen, year_x,month_x,day_x);
-        }
-        if (id == DIALOG_ID){
-            return new TimePickerDialog(this,TimeLisen,hora_x,min_x,true);
+        switch (id){
+            case 1:
+                return new DatePickerDialog(this, DateLisen, year_x,month_x,day_x);
+            case 2:
+                return new TimePickerDialog(this,TimeLisen,hora_x,min_x,false);
         }
         return null;
     }
