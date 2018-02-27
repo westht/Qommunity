@@ -48,7 +48,7 @@
     <string name="tab_text_2">aceptados</string>
     <string name="tab_text_3">finalizados</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    <string name ="preferenceperfil">Cambiar perfil</string>
+    <string name="preferenceperfil">Cambiar perfil</string>
 
     <!-- Strings related to Settings -->
 
@@ -124,6 +124,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_list_favores_add">Crear Favor</string>
 
 
 </resources>

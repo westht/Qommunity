@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +48,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private FirebaseAuth firebaseAuth;
     private ViewPager mViewPager;
-
+    private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,14 +70,15 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ListFavores.this, ListFavores_add.class);
+                startActivity(intent);
             }
         });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,6 +88,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
 
@@ -184,6 +187,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         public Fragment getItem(int position) {
             // se llama a getItem para crear una instancia del fragmento para la página dada.
             // Devuelve un PlaceholderFragment (definido como una clase interna estática a continuación).
+
             switch (position) {
                 case 0:
                     return new ListFavores_my();
@@ -211,11 +215,6 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         } else {
             super.onBackPressed();
         }
-    }
-
-    public void crearComu(View view) {
-        Intent intenti = new Intent(this, CrearComunidad.class);
-        startActivity(intenti);
     }
 
 
