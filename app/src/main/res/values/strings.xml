@@ -130,6 +130,10 @@
     <string name="diafavor">Día del favor</string>
     <string name="horafavor">Hora del favor</string>
     <string name="nuevofavorbot">Crear Favor</string>
+    <string name="comnombreunir">Nombre de la Comunidad: </string>
+    <string name="unirdirec">Dirección</string>
+    <string name="botonunir">Unirse a esta comunidad</string>
+    <string name="desunirboton">Salir de esta comunidad</string>
 
 
 </resources>

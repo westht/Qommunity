@@ -60,7 +60,7 @@ public class CrearComunidad extends AppCompatActivity {
         DataRef.child("comunidades").child(nomb).child("direccion").setValue(direc);
         DataRef.child("comunidades").child(nomb).child("usuarios").child(usuario.getUid()).child("email").setValue(usuario.getEmail().replace("@", "").replace(".", ""));
         Toast.makeText(this, "Comunidad creada", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(CrearComunidad.this, MainScreen.class);
+        Intent intent = new Intent(CrearComunidad.this, ListaComunidad.class);
         startActivity(intent);
     }
 }

@@ -46,4 +46,8 @@
     <string name="diafavor">Day</string>
     <string name="horafavor">Hour</string>
     <string name="nuevofavorbot">Create</string>
+    <string name="comnombreunir">Community Name: </string>
+    <string name="unirdirec">Address: </string>
+    <string name="botonunir">Join</string>
+    <string name="desunirboton">Exit</string>
 </resources>
