@@ -2,6 +2,7 @@ package com.team.a404.qommunity.Favores;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
@@ -31,6 +32,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,7 +58,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private ViewPager mViewPager;
     private FloatingActionButton fab;
-    private int year_x,month_x,day_x;
+    private int year_x,month_x,day_x,hora_x,min_x;
     private EditText nombrefav, descfav, fechafav, horafav;
     private Button creafav;
     static final int DIALOG_ID = 0;
@@ -109,6 +111,14 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                             }
                         }
                 );
+                horafav.setInputType(InputType.TYPE_NULL);
+                horafav.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                showDialog(DIALOG_ID);
+                            }
+                        }
+                );
 
                 creafav.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -149,8 +159,12 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         if (id == DIALOG_ID){
             return new DatePickerDialog(this, DateLisen, year_x,month_x,day_x);
         }
+        if (id == DIALOG_ID){
+            return new TimePickerDialog(this,TimeLisen,hora_x,min_x,true);
+        }
         return null;
     }
+
     private DatePickerDialog.OnDateSetListener DateLisen = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -158,6 +172,15 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
             month_x = month +1;
             day_x = day;
             fechafav.setText(day_x+" / "+month_x+" / "+year_x);
+        }
+    };
+
+    private TimePickerDialog.OnTimeSetListener TimeLisen = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker timePicker, int hora, int min) {
+            hora_x = hora;
+            min_x = min;
+            horafav.setText(hora_x+" : "+min_x);
         }
     };
 
