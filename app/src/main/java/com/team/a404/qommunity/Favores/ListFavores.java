@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -63,6 +64,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
     private FloatingActionButton fab;
     private int year_x, month_x, day_x, hora_x, min_x;
     private EditText nombrefav, descfav, fechafav, horafav;
+    private Spinner spinnercommunidades;
     private Button creafav;
     static final int DIALOG_ID = 0;
 
@@ -106,6 +108,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 fechafav = (EditText) dialog.findViewById(R.id.CogerFecha);
                 horafav = (EditText) dialog.findViewById(R.id.horafavor);
                 creafav = (Button) dialog.findViewById(R.id.creafav);
+                spinnercommunidades = (Spinner)dialog.findViewById(R.id.spincomuni);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
                 fechafav.setInputType(InputType.TYPE_NULL);

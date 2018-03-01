@@ -32,6 +32,7 @@ public class ListaComunidad extends AppCompatActivity  {
     private ListView listacomuns;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference DataRef;
+    private DatabaseReference DataRef2;
     private TextView nombcomuni;
     private Button unirse, quitarse;
     private ArrayList<String> arraycomunidades = new ArrayList<>();
@@ -48,6 +49,7 @@ public class ListaComunidad extends AppCompatActivity  {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         firebaseAuth = FirebaseAuth.getInstance();
         DataRef = FirebaseDatabase.getInstance().getReference("comunidades");
+        DataRef2 = FirebaseDatabase.getInstance().getReference("usuarios");
         listacomuns = (ListView)findViewById(R.id.comunidades);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arraycomunidades);
         listacomuns.setAdapter(arrayAdapter);
@@ -71,6 +73,7 @@ public class ListaComunidad extends AppCompatActivity  {
                     @Override
                     public void onClick(View view) {
                         mDatabase.child(nombre).child("usuarios").child(user.getUid()).child("email").setValue(user.getEmail().replace("@", "").replace(".", ""));
+                        DataRef2.child(user.getUid()).child("comunidad").child(nombre).setValue(nombre);
                         dialog.hide();
                     }
 
@@ -79,6 +82,7 @@ public class ListaComunidad extends AppCompatActivity  {
                     @Override
                     public void onClick(View view) {
                         mDatabase.child(nombre).child("usuarios").child(user.getUid()).child("email").removeValue();
+                        DataRef2.child(user.getUid()).child("comunidad").child(nombre).removeValue();
                         dialog.hide();
                     }
                 });

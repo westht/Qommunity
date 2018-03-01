@@ -134,6 +134,7 @@
     <string name="unirdirec">Dirección</string>
     <string name="botonunir">Unirse a esta comunidad</string>
     <string name="desunirboton">Salir de esta comunidad</string>
+    <string name="spinerdatocom">Seleccione una comunidad</string>
 
 
 </resources>

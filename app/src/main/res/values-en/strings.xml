@@ -50,4 +50,5 @@
     <string name="unirdirec">Address: </string>
     <string name="botonunir">Join</string>
     <string name="desunirboton">Exit</string>
+    <string name="spinerdatocom">Seleccione una comunidad</string>
 </resources>

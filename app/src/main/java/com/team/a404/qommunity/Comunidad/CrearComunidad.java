@@ -19,7 +19,7 @@ public class CrearComunidad extends AppCompatActivity {
     private Button crear;
     private EditText nombre, direccion;
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference DataRef;
+    private DatabaseReference DataRef,DataRef2;
 
 
     @Override
@@ -31,6 +31,7 @@ public class CrearComunidad extends AppCompatActivity {
         direccion = (EditText) findViewById(R.id.direccion);
         firebaseAuth = FirebaseAuth.getInstance();
         DataRef = FirebaseDatabase.getInstance().getReference();
+        DataRef2 = FirebaseDatabase.getInstance().getReference("usuarios");
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +60,7 @@ public class CrearComunidad extends AppCompatActivity {
         DataRef.child("comunidades").child(nomb).child("nombre").setValue(nomb);
         DataRef.child("comunidades").child(nomb).child("direccion").setValue(direc);
         DataRef.child("comunidades").child(nomb).child("usuarios").child(usuario.getUid()).child("email").setValue(usuario.getEmail().replace("@", "").replace(".", ""));
+        DataRef2.child(usuario.getUid()).child("comunidad").child(nomb).setValue(nomb);
         Toast.makeText(this, "Comunidad creada", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(CrearComunidad.this, ListaComunidad.class);
         startActivity(intent);
