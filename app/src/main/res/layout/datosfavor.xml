@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="320dp"
+    android:layout_height="500dp"
     android:orientation="vertical">
 
     <EditText
@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:ems="50"
         android:hint="@string/crea_descfavor"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine|textPersonName" />
 
     <EditText
         android:id="@+id/CogerFecha"
@@ -34,8 +34,11 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:ems="50"
+        android:focusable="false"
         android:hint="@string/diafavor"
-        android:inputType="textPersonName" />
+        android:inputType="none" />
+
+    ¡
 
     <EditText
         android:id="@+id/horafavor"
@@ -48,18 +51,20 @@
         android:hint="@string/horafavor"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/creafav"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
-        android:text="@string/nuevofavorbot"
-        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/creafav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:text="@string/nuevofavorbot"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+    </FrameLayout>
 
 </LinearLayout>
 
