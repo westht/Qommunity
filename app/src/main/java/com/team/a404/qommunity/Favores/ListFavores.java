@@ -1,5 +1,6 @@
 package com.team.a404.qommunity.Favores;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -10,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -52,16 +55,17 @@ import com.team.a404.qommunity.Objetos.UserInformation;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private ViewPager mViewPager;
     private FloatingActionButton fab;
-    private int year_x,month_x,day_x,hora_x,min_x;
+    private int year_x, month_x, day_x, hora_x, min_x;
     private EditText nombrefav, descfav, fechafav, horafav;
     private Button creafav;
     static final int DIALOG_ID = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,39 +94,61 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public void onClick(View view) {
                 final Dialog dialog = new Dialog(ListFavores.this);
                 dialog.setTitle("Detalles del favor");
                 dialog.setContentView(R.layout.datosfavor);
                 dialog.show();
-                nombrefav = (EditText)dialog.findViewById(R.id.nombfavor);
-                descfav = (EditText)dialog.findViewById(R.id.descripfavor);
-                fechafav = (EditText)dialog.findViewById(R.id.CogerFecha);
-                horafav = (EditText)dialog.findViewById(R.id.horafavor);
-                creafav = (Button)dialog.findViewById(R.id.creafav);
+                nombrefav = (EditText) dialog.findViewById(R.id.nombfavor);
+                descfav = (EditText) dialog.findViewById(R.id.descripfavor);
+                fechafav = (EditText) dialog.findViewById(R.id.CogerFecha);
+                horafav = (EditText) dialog.findViewById(R.id.horafavor);
+                creafav = (Button) dialog.findViewById(R.id.creafav);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
                 fechafav.setInputType(InputType.TYPE_NULL);
-                fechafav.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                showDialog(1);
-                            }
-                        }
-                );
+                fechafav.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        showDialog(1);
+                        return false;
+                    }
+                });
+
                 horafav.setInputType(InputType.TYPE_NULL);
                 horafav.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                showDialog(2);
-                            }
-                        }
+                                               @Override
+                                               public void onClick(View view) {
+                                                   showDialog(2);
+                                               }
+                                           }
                 );
+                creafav.setOnTouchListener(new View.OnTouchListener() {
+                    @SuppressLint("NewApi")
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        int action = MotionEventCompat.getActionMasked(motionEvent);
 
+                        switch (action) {
+                            case (MotionEvent.ACTION_DOWN):
+                                creafav.setBackgroundColor(getResources().getColor(R.color.ColorSecundario));
+                                return false;
+
+                            case (MotionEvent.ACTION_UP):
+                                creafav.setBackgroundColor(getResources().getColor(R.color.ColorPrimario));
+                                return false;
+
+
+                        }
+                        return false;
+                    }
+                });
                 creafav.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
                         String nombre = nombrefav.getText().toString().trim();
                         String desc = descfav.getText().toString().trim();
                         String fecha = fechafav.getText().toString().trim();
@@ -142,8 +168,6 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         });
 
 
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -155,12 +179,12 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
 
     }
 
-    protected Dialog onCreateDialog (int id){
-        switch (id){
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
             case 1:
-                return new DatePickerDialog(this, DateLisen, year_x,month_x,day_x);
+                return new DatePickerDialog(this, DateLisen, year_x, month_x, day_x);
             case 2:
-                return new TimePickerDialog(this,TimeLisen,hora_x,min_x,false);
+                return new TimePickerDialog(this, TimeLisen, hora_x, min_x, false);
         }
         return null;
     }
@@ -169,9 +193,9 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         @Override
         public void onDateSet(DatePicker view, int year, int month, int day) {
             year_x = year;
-            month_x = month +1;
+            month_x = month + 1;
             day_x = day;
-            fechafav.setText(day_x+" / "+month_x+" / "+year_x);
+            fechafav.setText(day_x + " / " + month_x + " / " + year_x);
         }
     };
 
@@ -180,10 +204,9 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         public void onTimeSet(TimePicker timePicker, int hora, int min) {
             hora_x = hora;
             min_x = min;
-            horafav.setText(hora_x+" : "+min_x);
+            horafav.setText(hora_x + " : " + min_x);
         }
     };
-
 
 
     @Override
@@ -205,7 +228,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
 
-                id_nombre.setText("Hola "+user.getPersonName());
+                id_nombre.setText("Hola " + user.getPersonName());
                 //id_email.setText(user.getEmail());
             }
 
@@ -323,7 +346,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-            Intent intent = new Intent(ListFavores.this, MainScreen.class);
+            Intent intent = new Intent(this, MainScreen.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -334,19 +357,15 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
         } else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
-            Intent intent = new Intent(ListFavores.this, LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_comunidades) {
-            Intent intent = new Intent(ListFavores.this, ListaComunidad.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {
-            Intent intent = new Intent(ListFavores.this, SettingsActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         }
 

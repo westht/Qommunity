@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseAuth firebaseAuth;
+        private FirebaseAuth firebaseAuth;
 
 
 
@@ -108,7 +108,7 @@ public class MainScreen extends AppCompatActivity
         if (id == R.id.nav_inicio) {
             // Handle the camera action
         } else if (id == R.id.nav_mis_favores) {
-            Intent intent = new Intent(MainScreen.this, ListFavores.class);
+            Intent intent = new Intent(this, ListFavores.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -117,15 +117,15 @@ public class MainScreen extends AppCompatActivity
         } else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
-            Intent intent = new Intent(MainScreen.this, LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_comunidades) {
-            Intent intent = new Intent(MainScreen.this, ListaComunidad.class);
+            Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {
-            Intent intent = new Intent(MainScreen.this, SettingsActivity.class);
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
         }
 
