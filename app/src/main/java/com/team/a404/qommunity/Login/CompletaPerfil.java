@@ -66,6 +66,7 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
         DataRef.child("usuarios").child(usuario.getUid()).child("telefono").setValue(telf);
         DataRef.child("usuarios").child(usuario.getUid()).child("email").setValue(usuario.getEmail());
         Toast.makeText(this, "Informacion guardada",Toast.LENGTH_LONG).show();
+
         Intent intent = new Intent(CompletaPerfil.this,LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

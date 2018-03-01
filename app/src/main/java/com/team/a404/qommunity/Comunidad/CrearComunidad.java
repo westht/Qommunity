@@ -52,7 +52,7 @@ public class CrearComunidad extends AppCompatActivity {
 
         notifi.flags = Notification.FLAG_AUTO_CANCEL;
         NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0,notifi);*/
+        manager.notifyAll();*/
         String nomb = nombre.getText().toString().trim();
         String direc = direccion.getText().toString().trim();
         FirebaseUser usuario = firebaseAuth.getCurrentUser();
