@@ -1,5 +1,6 @@
 package com.team.a404.qommunity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,10 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,15 +31,18 @@ import com.team.a404.qommunity.Ajustes.SettingsActivity;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Favores.ListFavores;
 import com.team.a404.qommunity.Login.LoginActivity;
+import com.team.a404.qommunity.Objetos.CommunityInformation;
 import com.team.a404.qommunity.Objetos.UserInformation;
+import com.team.a404.qommunity.Objetos.favoresInformation;
 
 import java.util.ArrayList;
 
 public class MainScreen extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth firebaseAuth;
+    private ListView lista_de_favores;
 
-
+    private ArrayList<String> arrayList =new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,7 @@ public class MainScreen extends AppCompatActivity
         setContentView(R.layout.activity_main_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         firebaseAuth = FirebaseAuth.getInstance();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -50,6 +61,39 @@ public class MainScreen extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        final DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference("comunidades/yugi boy/favores");
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
+
+        lista_de_favores = (ListView) findViewById(R.id.lista_de_favores);
+        lista_de_favores.setAdapter(adapter);
+
+
+        DataRef.addChildEventListener(new ChildEventListener(){
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s){
+
+                favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
+                arrayList.add(favor.getDescripcion() + ":" + favor.getFecha() + ":" + favor.getHora() + ":" + favor.getUsuario());
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s){
+
+            }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot){
+
+            }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s){
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError){
+
+            }
+        });
     }
 
     @Override
@@ -97,7 +141,6 @@ public class MainScreen extends AppCompatActivity
 
         return true;
     }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
