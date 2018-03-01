@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Qommunity</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="log_in">Log In</string>
-    <string name="no_tengo_una_cuenta">No tengo una cuenta.</string>
-    <string name="title_activity_forget_pwd">Recuperar Contraseña</string>
+    <string name="username">E-mail</string>
+    <string name="password">Contraseña</string>
+    <string name="log_in">Iniciar Sesión</string>
+    <string name="no_tengo_una_cuenta">¿No tienes cuenta? Registrate.</string>
+    <string name="title_activity_forget_pwd">¿Olvidaste tu contraseña?</string>
     <string name="title_activity_main_screen">Tu Qommunity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

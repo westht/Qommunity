@@ -47,7 +47,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/ColorPrimario"
-            android:hint="Usuario"
+            android:hint="@string/username"
             android:inputType="textPersonName"
             android:singleLine="false"
             android:textColorLink="@color/colorAccent"
@@ -67,7 +67,7 @@
 
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/ColorPrimario"
-            android:hint="Contraseña"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:textColorLink="@color/ColorPrimario"
             app:layout_constraintBottom_toTopOf="@+id/nocuenta"
@@ -86,7 +86,7 @@
 
             android:layout_marginTop="20dp"
             android:background="@color/colorAccent"
-            android:text="Iniciar Sesión"
+            android:text="@string/log_in"
             android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
             android:layout_gravity="center_horizontal|top"
 
 
-            android:text="¿Olvídaste tu contraseña?"
+            android:text="@string/title_activity_forget_pwd"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/logbutt"
@@ -121,7 +121,7 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="3dp"
 
-            android:text="¿No tienes cuenta? Registrarte"
+            android:text="@string/no_tengo_una_cuenta"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/logbutt"

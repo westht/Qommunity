@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Qommunity</string>
-    <string name="username">Username</string>
+    <string name="username">E-mail</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="no_tengo_una_cuenta">I don\'t have an account.</string>
-    <string name="title_activity_forget_pwd">Recover password</string>
+    <string name="title_activity_forget_pwd">Forgot your password?</string>
     <string name="title_activity_main_screen">Your Qommunity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
