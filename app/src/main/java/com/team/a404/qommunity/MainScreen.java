@@ -1,6 +1,5 @@
 package com.team.a404.qommunity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,10 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,18 +23,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.team.a404.qommunity.Ajustes.Ajustes;
 import com.team.a404.qommunity.Ajustes.SettingsActivity;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Favores.ListFavores;
 import com.team.a404.qommunity.Login.LoginActivity;
-import com.team.a404.qommunity.Objetos.CommunityInformation;
 import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.Objetos.favoresInformation;
 
 import java.util.ArrayList;
 
-public class MainScreen extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
         private FirebaseAuth firebaseAuth;
 
     private ListView lista_de_favores;
@@ -159,18 +154,18 @@ public class MainScreen extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_chats) {
 
-        } else if (id == R.id.logout) {
+        } /*else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else if (id == R.id.nav_comunidades) {
+        } */else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, Ajustes.class);
             startActivity(intent);
         }
 

@@ -9,7 +9,6 @@ import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -23,7 +22,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,7 +43,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.team.a404.qommunity.Comunidad.CrearComunidad;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Login.LoginActivity;
 import com.team.a404.qommunity.MainScreen;
@@ -357,14 +354,15 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
 
         } else if (id == R.id.nav_chats) {
 
-        } else if (id == R.id.logout) {
+        } /*else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else if (id == R.id.nav_comunidades) {
+
+        } */else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {

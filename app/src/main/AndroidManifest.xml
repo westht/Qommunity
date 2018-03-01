@@ -73,7 +73,11 @@
         <activity
             android:name=".Favores.ListFavores_add"
             android:label="@string/title_activity_list_favores_add"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Ajustes.Ajustes"
+            android:label="Ajustes"
+            android:parentActivityName=".MainScreen"/>
     </application>
 
 </manifest>

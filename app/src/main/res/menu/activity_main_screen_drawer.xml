@@ -22,21 +22,11 @@
             android:title="Chats" />
     </group>
 
-    <item android:title="Opciones">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/opcions"
-                android:icon="@drawable/icon_ajustes"
-                android:title="@string/ajustes_drawer" />
-            <item
-                android:id="@+id/logout"
-                android:icon="@drawable/icon_smartphone_bloqueado"
-                android:title="@string/logout_drawer" />
-        </menu>
-    </item>
+    <group>
+        <item
+            android:id="@+id/opcions"
+            android:icon="@drawable/icon_ajustes"
+            android:title="@string/ajustes_drawer" />
+    </group>
 
 </menu>

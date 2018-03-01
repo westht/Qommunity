@@ -36,7 +36,6 @@ import java.util.ArrayList;
 
 public class ModificaUsuario extends AppCompatActivity {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    ;
     private DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
     private TextView nombre, telefon;
     private Button guarda;
