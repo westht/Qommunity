@@ -29,6 +29,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ import com.team.a404.qommunity.Objetos.UserInformation;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ListFavores extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -108,6 +110,26 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 spinnercommunidades = (Spinner)dialog.findViewById(R.id.spincomuni);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
+                final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("comunidad");
+                DataRefe.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        final List<String> areas = new ArrayList<String>();
+                        for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
+                            String areaName = areaSnapshot.getKey();
+                            areas.add(areaName);
+                        }
+                        ArrayAdapter<String> areasAdapter = new ArrayAdapter<String>(ListFavores.this, android.R.layout.simple_spinner_item, areas);
+                        areasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnercommunidades.setAdapter(areasAdapter);
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
                 fechafav.setInputType(InputType.TYPE_NULL);
                 fechafav.setOnTouchListener(new View.OnTouchListener() {
                     @Override
@@ -153,10 +175,11 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                         String desc = descfav.getText().toString().trim();
                         String fecha = fechafav.getText().toString().trim();
                         String hora = horafav.getText().toString().trim();
-                        mDatabase.child("yugi boy").child("favores").child(nombre).child("descripcion").setValue(desc);
-                        mDatabase.child("yugi boy").child("favores").child(nombre).child("fecha").setValue(fecha);
-                        mDatabase.child("yugi boy").child("favores").child(nombre).child("hora").setValue(hora);
-                        mDatabase.child("yugi boy").child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
+                        String comunidadelegida = spinnercommunidades.getSelectedItem().toString();
+                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("descripcion").setValue(desc);
+                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("fecha").setValue(fecha);
+                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
                         dialog.hide();
 
 
