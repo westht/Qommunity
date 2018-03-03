@@ -6,12 +6,14 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,7 +42,7 @@ public class ModificaUsuario extends AppCompatActivity {
     private TextView nombre, telefon;
     private Button guarda;
     private EditText nomb, telf;
-    private Button imagenperfil;
+    private ImageView imagenperfil;
     private CircularImageView imagen;
     private static final int PICK_IMAGE_REQUEST = 100;
     Uri imageUri;
@@ -55,8 +57,8 @@ public class ModificaUsuario extends AppCompatActivity {
         telefon = (TextView) findViewById(R.id.numeromod);
         nomb = (EditText) findViewById(R.id.nombremodifica);
         telf = (EditText) findViewById(R.id.numeromodifica);
-        guarda = (Button) findViewById(R.id.cambia);
-        imagenperfil = (Button) findViewById(R.id.imagenperfil);
+        guarda = (Button) findViewById(R.id.guarda);
+        imagenperfil = (ImageView) findViewById(R.id.imagenperfil);
         imagen = (CircularImageView)findViewById(R.id.imagen);
         imagenperfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +82,7 @@ public class ModificaUsuario extends AppCompatActivity {
                     public void onSuccess(byte[] bytes) {
                         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                         imagen.setImageBitmap(bmp);
+                        imagenperfil.setVisibility(View.VISIBLE);
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -137,7 +140,7 @@ public class ModificaUsuario extends AppCompatActivity {
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
                     DataRef.child(usuario.getUid()).child("urlfoto").setValue(downloadUrl.toString());
                     Log.d("downloadUrl-->", "" + downloadUrl);
-
+                    Snackbar.make(guarda, "Imagen Guardada", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 }
             });
         }
@@ -149,8 +152,6 @@ public class ModificaUsuario extends AppCompatActivity {
         String numero = telf.getText().toString().trim();
         DataRef.child(usuario.getUid()).child("nombre").setValue(nombre);
         DataRef.child(usuario.getUid()).child("telefono").setValue(numero);
-        Toast.makeText(this, "Informacion guardada", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(ModificaUsuario.this, SettingsActivity.class);
-        startActivity(intent);
+        Snackbar.make(guarda, "Datos Guardados", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 }

@@ -1,64 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.team.a404.qommunity.Ajustes.ModificaUsuario">
 
-    <Button
-        android:id="@+id/cambia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@color/colorAccent"
-        android:text="@string/modificaruser"
-        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp">
+        android:layout_height="190dp"
+        android:background="@color/ColorSecundario">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="139dp"
+            android:layout_height="140dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
             app:lottie_autoPlay="true"
             app:lottie_fileName="loader.json"
             app:lottie_loop="true" />
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/imagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp" />
+            app:civ_border="false" />
 
-        <Button
+        <ImageView
             android:id="@+id/imagenperfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="130dp"
-            android:background="@color/colorAccent"
-            android:text="@string/botoncambiaimagen"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/edit_img" />
 
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <TextView
@@ -85,8 +71,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="phone" />
+
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.widget.FrameLayout>
+        <Button
+            android:id="@+id/guarda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorAccent"
+            android:text="@string/modificaruser"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+    </FrameLayout>
+
+
+</LinearLayout>
