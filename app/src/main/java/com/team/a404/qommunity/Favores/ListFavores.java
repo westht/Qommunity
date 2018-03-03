@@ -175,11 +175,11 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                         String desc = descfav.getText().toString().trim();
                         String fecha = fechafav.getText().toString().trim();
                         String hora = horafav.getText().toString().trim();
-                        String comunidadelegida = spinnercommunidades.getSelectedItem().toString();
-                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("descripcion").setValue(desc);
-                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("fecha").setValue(fecha);
-                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("hora").setValue(hora);
-                        mDatabase.child(comunidadelegida).child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
+                        String comunidad_elegida = spinnercommunidades.getSelectedItem().toString();
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("descripcion").setValue(desc);
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("fecha").setValue(fecha);
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
                         dialog.hide();
 
 
