@@ -23,9 +23,7 @@ public class UserInformation {
         this.ncomunidades=ncomunidades;
     }
 
-    public String getPersonName() {
-        return nombre;
-    }
+    public String getPersonName() {return nombre;}
     public String getTel(){
         return telefono;
     }

@@ -73,34 +73,43 @@ public class ModificaUsuario extends AppCompatActivity {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
                 ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
-                UserInformation user = dataSnapshot.getValue(UserInformation.class);
-                userlist.add(user);
-                nomb.setText(user.getPersonName());
-                telf.setText(user.getTel());
+                FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios/"+usero.getUid());
+                //userlist.add(user);
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-                try{
-                    StorageReference stor = FirebaseStorage.getInstance().getReference().child("images/" + usuario.getUid().toString() + "/userphoto.jpg");
-                    final long ONE_MEGABYTE = 1024 * 1024;
-                    stor.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                        @Override
-                        public void onSuccess(byte[] bytes) {
-                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            imagen.setImageBitmap(bmp);
-                            imagenperfil.setVisibility(View.VISIBLE);
+                        UserInformation user = dataSnapshot.getValue(UserInformation.class);
+                        Log.v("MSG",""+user.getPersonName());
+                        nomb.setText(user.getPersonName());
+                        telf.setText(user.getTel());
+                    }
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            imagen.setImageResource(R.drawable.logo_qommunity);
-                            imagenperfil.setVisibility(View.VISIBLE);
-                        }
-                    });
-                }catch (Exception e){
-                    imagenperfil.setVisibility(View.VISIBLE);
-                }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
 
+                StorageReference stor = FirebaseStorage.getInstance().getReference().child("images/" + usuario.getUid().toString() + "/userphoto.jpg");
+                final long ONE_MEGABYTE = 1024 * 1024;
+                stor.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        imagen.setImageBitmap(bmp);
+                        imagenperfil.setVisibility(View.VISIBLE);
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        imagen.setImageResource(R.drawable.logo_qommunity);
+                        imagenperfil.setVisibility(View.VISIBLE);
+                    }
+                });
             }
 
             @Override
@@ -126,44 +135,35 @@ public class ModificaUsuario extends AppCompatActivity {
     protected void onActivityResult(int requestcode, int resultcode, Intent data) {
         super.onActivityResult(requestcode, resultcode, data);
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        try{
-            StorageReference storageRef = storage.getInstance().getReference().child("images").child(firebaseAuth.getCurrentUser().getUid()).child("userphoto.jpg");
-            if (resultcode == RESULT_OK && requestcode == PICK_IMAGE_REQUEST) {
-                imageUri = data.getData();
-                imagen.setImageURI(imageUri);
-                Bitmap bitmap = null;
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-                byte[] img = baos.toByteArray();
-                UploadTask uploadTask = storageRef.putBytes(img);
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        DataRef.child(usuario.getUid()).child("urlfoto").setValue(downloadUrl.toString());
-                        Log.d("downloadUrl-->", "" + downloadUrl);
-                        Snackbar.make(guarda, "Imagen Guardada", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    }
-                });
+        StorageReference storageRef = storage.getInstance().getReference().child("images").child(firebaseAuth.getCurrentUser().getUid()).child("userphoto.jpg");
+        if (resultcode == RESULT_OK && requestcode == PICK_IMAGE_REQUEST) {
+            imageUri = data.getData();
+            imagen.setImageURI(imageUri);
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+            byte[] img = baos.toByteArray();
+            UploadTask uploadTask = storageRef.putBytes(img);
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-        }catch(Exception e){
-
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    DataRef.child(usuario.getUid()).child("urlfoto").setValue(downloadUrl.toString());
+                    Log.d("downloadUrl-->", "" + downloadUrl);
+                    Snackbar.make(guarda, "Imagen Guardada", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                }
+            });
         }
-
-
-
-
     }
     private void GuardaDatos() {
         String nombre = nomb.getText().toString().trim();
