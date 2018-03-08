@@ -35,7 +35,8 @@
             android:id="@+id/numero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/completatelf" />
+            android:hint="@string/completatelf"
+            android:singleLine="false" />
 
         <Button
             android:id="@+id/btn_enviar"

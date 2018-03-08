@@ -70,7 +70,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             public void onChildAdded(DataSnapshot dataSnapshot, String s){
 
                 favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
-                arrayList.add(favor.getDescripcion() + ":" + favor.getFecha() + ":" + favor.getHora() + ":" + favor.getUsuario());
+                arrayList.add(favor.getDescripcion() + "\n" + favor.getFecha() + "\n" + favor.getHora() + "\n" + favor.getUsuario());
                 adapter.notifyDataSetChanged();
             }
             @Override
