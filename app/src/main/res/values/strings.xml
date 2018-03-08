@@ -59,6 +59,7 @@
     <string name="meteuser">Introduzca el correo</string>
     <string name="nolog">Correo o contraseña incorrectos</string>
     <string name="logeando">Iniciando Sesión</string>
+    <string name="hello">Hola, </string>
 
 
     <!-- Strings related to Settings -->

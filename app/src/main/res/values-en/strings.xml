@@ -60,4 +60,6 @@
     <string name="metepass">Please enter your password</string>
     <string name="meteuser">Please enter your email</string>
     <string name="nolog">Incorrect email or password</string>
+    <string name="logeando">Logging in</string>
+    <string name="hello">Hello, </string>
 </resources>

@@ -176,7 +176,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
-                id_nombre.setText("Hola " + user.getPersonName());
+                id_nombre.setText(getString(R.string.hello) + user.getPersonName());
                 //id_email.setText(user.getEmail());
 
 
