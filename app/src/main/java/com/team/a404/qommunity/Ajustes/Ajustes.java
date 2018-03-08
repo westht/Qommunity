@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -57,35 +58,45 @@ public class Ajustes extends AppCompatActivity {
         nombre_user = (TextView)findViewById(R.id.nombre_user);
         email_user = (TextView)findViewById(R.id.email_user);
 
-        DataRef.child(usuario.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(final DataSnapshot dataSnapshot) {
-                ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
-                UserInformation user = dataSnapshot.getValue(UserInformation.class);
-                userlist.add(user);
-                nombre_user.setText(user.getPersonName());
-                email_user.setText(user.getEmail());
-                StorageReference stor = FirebaseStorage.getInstance().getReference().child("images/"+usuario.getUid().toString()+"/userphoto.jpg");
-                final long ONE_MEGABYTE = 1024 * 1024;
-                stor.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                        avatar_user.setImageBitmap(bmp);
+        try{
+            DataRef.child(usuario.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(final DataSnapshot dataSnapshot) {
+                    ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
+                    UserInformation user = dataSnapshot.getValue(UserInformation.class);
+                    userlist.add(user);
+                    nombre_user.setText(user.getPersonName());
+                    email_user.setText(user.getEmail());
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
 
-                    }
-                });
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                    StorageReference stor = FirebaseStorage.getInstance().getReference().child("images/"+usuario.getUid().toString()+"/userphoto.jpg");
+                    final long ONE_MEGABYTE = 1024 * 1024;
+                    stor.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            avatar_user.setImageBitmap(bmp);
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            avatar_user.setImageResource(R.drawable.logo_qommunity);
+                        }
+                    });
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    avatar_user.setImageResource(R.drawable.logo_qommunity);
+                }
+            });
+
+        }catch (Exception e){
+            avatar_user.setImageResource(R.drawable.logo_qommunity);
+        }
+
+
 
 
         m_edit_perfil.setOnClickListener(new View.OnClickListener() {
