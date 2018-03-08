@@ -6,13 +6,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,13 +36,16 @@ import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.Objetos.favoresInformation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-        private FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
     private ListView lista_de_favores;
+    private Spinner spinnercomunidades;
+    SwipeRefreshLayout swipeRefreshLayout;
 
-    private ArrayList<String> arrayList =new ArrayList<>();
+    private ArrayList<String> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,38 +65,88 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference("comunidades/yugi boy/favores");
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.miswipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                lista_de_favores.invalidateViews();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
 
         lista_de_favores = (ListView) findViewById(R.id.lista_de_favores);
-        lista_de_favores.setAdapter(adapter);
-
-
-        DataRef.addChildEventListener(new ChildEventListener(){
+        spinnercomunidades = (Spinner) findViewById(R.id.spinnercomunidad);
+        final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
+        final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("comunidad");
+        DataRefe.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s){
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final List<String> areas = new ArrayList<String>();
+                for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
+                    String areaName = areaSnapshot.getKey();
+                    areas.add(areaName);
+                }
+                ArrayAdapter<String> areasAdapter = new ArrayAdapter<String>(MainScreen.this, android.R.layout.simple_spinner_item, areas);
+                areasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnercomunidades.setAdapter(areasAdapter);
 
-                favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
-                arrayList.add(favor.getDescripcion() + "\n" + favor.getFecha() + "\n" + favor.getHora() + "\n" + favor.getUsuario());
-                adapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s){
-
-            }
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot){
 
             }
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s){
 
-            }
             @Override
-            public void onCancelled(DatabaseError databaseError){
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+        spinnercomunidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                arrayList.clear();
+                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
+                lista_de_favores.setAdapter(adapter);
+                final DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference("comunidades").child(spinnercomunidades.getSelectedItem().toString()).child("favores");
+
+
+                DataRef.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                        favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
+                        arrayList.add(favor.getDescripcion() + "\n" + favor.getFecha() + "\n" + favor.getHora() + "\n" + favor.getUsuario());
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
     }
 
     @Override
@@ -101,8 +158,6 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             super.onBackPressed();
         }
     }
-
-
 
 
     @Override
@@ -121,9 +176,8 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
 
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
-                id_nombre.setText("Hola "+user.getPersonName());
+                id_nombre.setText("Hola " + user.getPersonName());
                 //id_email.setText(user.getEmail());
-
 
 
             }
@@ -161,7 +215,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } */else if (id == R.id.nav_comunidades) {
+        } */ else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {

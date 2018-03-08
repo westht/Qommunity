@@ -8,10 +8,25 @@
     tools:context="com.team.a404.qommunity.MainScreen"
     tools:showIn="@layout/app_bar_main_screen">
 
-    <ListView
-        android:id="@+id/lista_de_favores"
+    <Spinner
+        android:id="@+id/spinnercomunidad"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
         />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/miswipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="30dp">
+
+        <ListView
+            android:id="@+id/lista_de_favores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </android.widget.FrameLayout>
