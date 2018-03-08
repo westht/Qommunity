@@ -84,17 +84,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (TextUtils.isEmpty(usr)) {
             // email is empty
-            Snackbar.make(log, "Introduzca el E-mail", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Snackbar.make(log, getString(R.string.meteuser), Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return;
             // para la ejecucion
         }
         if (TextUtils.isEmpty(pwd)) {
             // password is empty
-            Snackbar.make(log, "Introduzca la contraseña", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Snackbar.make(log, getString(R.string.metepass), Snackbar.LENGTH_LONG).setAction("Action", null).show();
             // para la ejecucion
             return;
         }
-        progressDialog.setMessage("Iniciando Sesion");
+        progressDialog.setMessage(getString(R.string.logeando));
         progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(usr, pwd)
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
                             startActivity(intent1);
                         }else{
-                            Snackbar.make(log, "Datos Incorrectos", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                            Snackbar.make(log, getString(R.string.nolog), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                         }
 
                     }

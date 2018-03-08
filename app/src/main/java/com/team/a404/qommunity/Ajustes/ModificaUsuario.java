@@ -160,7 +160,7 @@ public class ModificaUsuario extends AppCompatActivity {
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
                     DataRef.child(usuario.getUid()).child("urlfoto").setValue(downloadUrl.toString());
                     Log.d("downloadUrl-->", "" + downloadUrl);
-                    Snackbar.make(guarda, "Imagen Guardada", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    Snackbar.make(guarda, getString(R.string.guardaimagen), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 }
             });
         }
@@ -170,6 +170,6 @@ public class ModificaUsuario extends AppCompatActivity {
         String numero = telf.getText().toString().trim();
         DataRef.child(usuario.getUid()).child("nombre").setValue(nombre);
         DataRef.child(usuario.getUid()).child("telefono").setValue(numero);
-        Snackbar.make(guarda, "Datos Guardados", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        Snackbar.make(guarda, getString(R.string.guardadatos), Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 }

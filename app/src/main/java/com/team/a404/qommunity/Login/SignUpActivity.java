@@ -59,26 +59,26 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if (password1.equals(password2)){
             if (TextUtils.isEmpty(email)) {
                 // email is empty
-                Toast.makeText(this, "Introduzca el E-mail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.meteuser), Toast.LENGTH_SHORT).show();
                 // para la ejecucion
                 return;
             }
             if (TextUtils.isEmpty(password1)) {
                 // password is empty
-                Toast.makeText(this, "Introduzca la contraseña", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.metepass), Toast.LENGTH_SHORT).show();
                 // para la ejecucion
                 return;
             }
 
 
-            progressDialog.setMessage("Creando usuario.");
+            progressDialog.setMessage(getString(R.string.registrando));
             progressDialog.show();
             firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // se ha registrado
-                        Toast.makeText(SignUpActivity.this, "Registrado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, getString(R.string.registra), Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
                         Intent intent = new Intent(SignUpActivity.this,CompletaPerfil.class);
                         startActivity(intent);
@@ -86,13 +86,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
                     } else {
-                        Toast.makeText(SignUpActivity.this, "No ha podido registrarse, intentalo de nuevo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, getString(R.string.noregistro), Toast.LENGTH_SHORT).show();
                         progressDialog.hide();
                     }
                 }
             });
         }else{
-            Toast.makeText(SignUpActivity.this, "La contraseña no coincide.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SignUpActivity.this, getString(R.string.nopass), Toast.LENGTH_SHORT).show();
             progressDialog.hide();
         }
     }

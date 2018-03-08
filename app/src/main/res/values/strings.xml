@@ -49,6 +49,17 @@
     <string name="tab_text_3">finalizados</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="preferenceperfil">Cambiar perfil</string>
+    <string name="guardadatos">Datos guardados</string>
+    <string name="guardaimagen">Imagen guardada</string>
+    <string name="registra">Registrado</string>
+    <string name="registrando">Creando usuario</string>
+    <string name="noregistro">No ha podido registrarse, intentalo de nuevo</string>
+    <string name="nopass">La contraseña no coincide</string>
+    <string name="metepass">Introduzca la contraseña</string>
+    <string name="meteuser">Introduzca el correo</string>
+    <string name="nolog">Correo o contraseña incorrectos</string>
+    <string name="logeando">Iniciando Sesión</string>
+
 
     <!-- Strings related to Settings -->
 

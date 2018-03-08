@@ -51,4 +51,13 @@
     <string name="botonunir">Join</string>
     <string name="desunirboton">Exit</string>
     <string name="spinerdatocom">Seleccione una comunidad</string>
+    <string name="guardadatos">Changes were saved</string>
+    <string name="guardaimagen">Image saved</string>
+    <string name="registra">New account created</string>
+    <string name="registrando">Creating account</string>
+    <string name="noregistro">Unable to create user</string>
+    <string name="nopass">Password does not match</string>
+    <string name="metepass">Please enter your password</string>
+    <string name="meteuser">Please enter your email</string>
+    <string name="nolog">Incorrect email or password</string>
 </resources>
