@@ -6,10 +6,9 @@
     <string name="no_tengo_una_cuenta">¿No tienes cuenta? Registrate.</string>
     <string name="title_activity_forget_pwd">¿Olvidaste tu contraseña?</string>
     <string name="title_activity_main_screen">Tu Qommunity</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="activityregistro">Registrarse</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Ajustes</string>
     <string name="categoriaajuste_general">General</string>
     <string name="categoriaajuste_perfil">Perfil</string>
@@ -59,7 +58,7 @@
     <string name="meteuser">Introduzca el correo</string>
     <string name="nolog">Correo o contraseña incorrectos</string>
     <string name="logeando">Iniciando Sesión</string>
-    <string name="hello">Hola, </string>
+    <string name="hello">Hola ,</string>
 
 
     <!-- Strings related to Settings -->
@@ -147,6 +146,7 @@
     <string name="botonunir">Unirse a esta comunidad</string>
     <string name="desunirboton">Salir de esta comunidad</string>
     <string name="spinerdatocom">Seleccione una comunidad</string>
+    <string name="cambiacontraseña">Cambiar contraseña</string>
 
 
 </resources>

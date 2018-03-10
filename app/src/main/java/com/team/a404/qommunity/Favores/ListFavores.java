@@ -44,6 +44,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.team.a404.qommunity.Ajustes.Ajustes;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Login.LoginActivity;
 import com.team.a404.qommunity.MainScreen;
@@ -388,7 +389,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {
-            Intent intent = new Intent(this, SettingsActivity.class);
+            Intent intent = new Intent(this, Ajustes.class);
             startActivity(intent);
         }
 
