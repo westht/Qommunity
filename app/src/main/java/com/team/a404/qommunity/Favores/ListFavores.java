@@ -109,6 +109,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 creafav = (Button) dialog.findViewById(R.id.creafav);
                 spinnercommunidades = (Spinner)dialog.findViewById(R.id.spincomuni);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
+                final DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("usuarios");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
                 final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("comunidad");
                 DataRefe.addValueEventListener(new ValueEventListener() {
@@ -177,9 +178,16 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                         String hora = horafav.getText().toString().trim();
                         String comunidad_elegida = spinnercommunidades.getSelectedItem().toString();
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("descripcion").setValue(desc);
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("comunidad").setValue(comunidad_elegida);
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("fecha").setValue(fecha);
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("estado").setValue("pendiente");
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
+                        mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("descripcion").setValue(desc);
+                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("comunidad").setValue(comunidad_elegida);
+                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("fecha").setValue(fecha);
+                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("estado").setValue("pendiente");
                         dialog.hide();
 
 

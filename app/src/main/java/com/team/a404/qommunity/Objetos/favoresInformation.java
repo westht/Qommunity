@@ -11,6 +11,9 @@ public class favoresInformation {
     private String hora;
     private String usuario;
 
+
+    private String estado;
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -27,13 +30,19 @@ public class favoresInformation {
         return usuario;
     }
 
-    public  favoresInformation(){}
+    public String getEstado() {
+        return estado;
+    }
 
-    public favoresInformation(String descripcion, String fecha, String hora, String usuario) {
+    public favoresInformation() {
+    }
+
+    public favoresInformation(String descripcion, String fecha, String hora, String usuario, String estado) {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.hora = hora;
         this.usuario = usuario;
+        this.estado = estado;
     }
 
 }
