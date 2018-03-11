@@ -64,4 +64,7 @@
     <string name="logeando">Logging in</string>
     <string name="hello">Hello ,</string>
     <string name="cambiacontraseña">Change password</string>
+    <string name="tab_text_1">My Favors</string>
+    <string name="tab_text_2">Accepted</string>
+    <string name="tab_text_3">Finished</string>
 </resources>

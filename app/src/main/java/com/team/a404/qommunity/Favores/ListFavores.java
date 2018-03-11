@@ -184,10 +184,10 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("estado").setValue("pendiente");
                         mDatabase.child(comunidad_elegida).child("favores").child(nombre).child("usuario").setValue(fbuser.getUid());
                         mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("descripcion").setValue(desc);
-                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("comunidad").setValue(comunidad_elegida);
-                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("fecha").setValue(fecha);
-                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("hora").setValue(hora);
-                        mDatabase2.child(comunidad_elegida).child("favores").child(nombre).child("estado").setValue("pendiente");
+                        mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("comunidad").setValue(comunidad_elegida);
+                        mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("fecha").setValue(fecha);
+                        mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("hora").setValue(hora);
+                        mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("estado").setValue("pendiente");
                         dialog.hide();
 
 
