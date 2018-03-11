@@ -259,7 +259,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 UserInformation user = dataSnapshot.getValue(UserInformation.class);
                 userlist.add(user);
 
-                id_nombre.setText("Hola " + user.getPersonName());
+                id_nombre.setText(getString(R.string.hello) + user.getPersonName());
                 //id_email.setText(user.getEmail());
             }
 

@@ -67,4 +67,8 @@
     <string name="tab_text_1">My Favors</string>
     <string name="tab_text_2">Accepted</string>
     <string name="tab_text_3">Finished</string>
+    <string name="creadopor">Posted by</string>
+    <string name="aceptar">Accept favor</string>
+    <string name="yaaceptado">Favor Accepted</string>
+    <string name="yacreado">Favor Created</string>
 </resources>

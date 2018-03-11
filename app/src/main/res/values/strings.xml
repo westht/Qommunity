@@ -59,6 +59,8 @@
     <string name="nolog">Correo o contraseña incorrectos</string>
     <string name="logeando">Iniciando Sesión</string>
     <string name="hello">Hola ,</string>
+    <string name="yaaceptado">Favor aceptado</string>
+    <string name="yacreado">Favor creado</string>
 
 
     <!-- Strings related to Settings -->
@@ -147,6 +149,8 @@
     <string name="desunirboton">Salir de esta comunidad</string>
     <string name="spinerdatocom">Seleccione una comunidad</string>
     <string name="cambiacontraseña">Cambiar contraseña</string>
+    <string name="creadopor">Creado por</string>
+    <string name="aceptar">Aceptar favor</string>
 
 
 </resources>

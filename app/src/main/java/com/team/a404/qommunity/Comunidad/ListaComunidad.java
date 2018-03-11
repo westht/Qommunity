@@ -58,7 +58,6 @@ public class ListaComunidad extends AppCompatActivity  {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 final Dialog dialog = new Dialog(ListaComunidad.this);
-                dialog.setTitle("Detalles del favor");
                 dialog.setContentView(R.layout.dialogunircomunidad);
                 dialog.show();
                 nombcomuni = (TextView)dialog.findViewById(R.id.NombreCom);
