@@ -50,6 +50,7 @@ public class ListFavores_my extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        arrayList.clear();
         View rootView = inflater.inflate(R.layout.fragment_list_favores_my, container, false);
         listafav = (ListView) rootView.findViewById(R.id.milistafavores);
         firebaseAuth = FirebaseAuth.getInstance();
