@@ -11,6 +11,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -35,6 +37,7 @@ import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Favores.ListFavores;
 import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.Objetos.favoresInformation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +47,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
     private ListView lista_de_favores;
     private Spinner spinnercomunidades;
     SwipeRefreshLayout swipeRefreshLayout;
-    private EditText desc,fecha,hora;
+    private EditText desc, fecha, hora;
     private TextView nombreuser;
     private Button aceptafav;
 
@@ -115,10 +118,13 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
-                        if (favor.getEstado().toString().equals("pendiente")) {
-                            favores.add(favor);
+                        if (favor.getEstado().equals("pendiente")) {
                             arrayList.add(dataSnapshot.getKey());
+                            favores.add(favor);
                             adapter.notifyDataSetChanged();
+
+                        }if(favor.getEstado()==null){
+                            Log.v("C", "Sin nada");
                         }
                     }
 
@@ -152,14 +158,14 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                         desc = (EditText) dialog.findViewById(R.id.descripfav);
                         fecha = (EditText) dialog.findViewById(R.id.diafav);
                         hora = (EditText) dialog.findViewById(R.id.horafav);
-                        nombreuser = (TextView)dialog.findViewById(R.id.usuariofav);
+                        nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                         aceptafav = (Button) dialog.findViewById(R.id.aceptar);
                         String uiduser = favores.get(i).getUsuario();
-                        final DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
+                        final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
                         desc.setText(favores.get(i).getDescripcion().toString());
                         fecha.setText(favores.get(i).getFecha().toString());
                         hora.setText(favores.get(i).getHora().toString());
-                        DataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 UserInformation usr = dataSnapshot.getValue(UserInformation.class);
@@ -180,8 +186,6 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                                 dialog.hide();
                             }
                         });
-
-
 
 
                     }
@@ -252,9 +256,12 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             // Handle the camera action
         } else if (id == R.id.nav_mis_favores) {
             Intent intent = new Intent(this, ListFavores.class);
+            favores.clear();
+            arrayList.clear();
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         } else if (id == R.id.nav_chats) {
 
         } /*else if (id == R.id.logout) {

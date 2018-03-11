@@ -46,10 +46,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.team.a404.qommunity.Ajustes.Ajustes;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
-import com.team.a404.qommunity.Login.LoginActivity;
 import com.team.a404.qommunity.MainScreen;
 import com.team.a404.qommunity.R;
-import com.team.a404.qommunity.Ajustes.SettingsActivity;
 import com.team.a404.qommunity.Objetos.UserInformation;
 
 import java.util.ArrayList;
@@ -381,6 +379,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         } else if (id == R.id.nav_mis_favores) {
 
         } else if (id == R.id.nav_chats) {
