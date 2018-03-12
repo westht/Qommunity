@@ -192,6 +192,8 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                                 mbase.child(arrayList.get(i).toString()).child("hora").setValue(hora.getText().toString());
                                 mbase.child(arrayList.get(i).toString()).child("comunidad").setValue(spinnercomunidades.getSelectedItem().toString());
                                 mbase.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
+                                DatabaseReference nuevo = FirebaseDatabase.getInstance().getReference("usuarios").child(favores.get(i).getUsuario()).child("favores");
+                                nuevo.child(arrayList.get(i).toString()).child("usuario").setValue(fbuser.getUid().toString());
                                 DatabaseReference mbase2 = FirebaseDatabase.getInstance().getReference("comunidades").child(spinnercomunidades.getSelectedItem().toString()).child("favores");
                                 mbase2.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
                                 mbase2.child(arrayList.get(i).toString()).child("usuarioacepta").setValue(fbuser.getUid().toString());

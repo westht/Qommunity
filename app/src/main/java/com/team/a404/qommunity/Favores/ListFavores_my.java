@@ -117,8 +117,10 @@ public class ListFavores_my extends Fragment {
                 desc.setText(favores.get(i).getDescripcion().toString());
                 fecha.setText(favores.get(i).getFecha().toString());
                 hora.setText(favores.get(i).getHora().toString());
-                String uiduser = favores.get(i).getUsuario_acepta();
+
+
                 try {
+                        String uiduser = favores.get(i).getUsuario().toString();
                         final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
                         DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override

@@ -11,8 +11,6 @@ public class favoresInformation {
     private String hora;
     private String usuario;
     private String estado;
-
-
     private String usuarioacepta;
 
     public String getDescripcion() {
