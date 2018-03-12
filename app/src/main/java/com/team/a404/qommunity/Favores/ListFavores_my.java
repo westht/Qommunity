@@ -177,6 +177,20 @@ public class ListFavores_my extends Fragment {
 
                                 }
                             });
+                            final DatabaseReference DataReferencia3 = FirebaseDatabase.getInstance().getReference("usuarios").child(favores.get(i).getUsuario().toString()).child("favores_aceptados").child(arrayList.get(i).toString());
+                            DataReferencia3.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                        child.getRef().removeValue();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
 
                         } catch (NullPointerException e) {
                             Log.v("C", "Sin nada");
