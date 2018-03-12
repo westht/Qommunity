@@ -2,6 +2,8 @@ package com.team.a404.qommunity.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,13 +24,12 @@ import com.team.a404.qommunity.R;
 
 
 
-public class CompletaPerfil extends AppCompatActivity implements View.OnClickListener {
+public class CompletaPerfil extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference DataRef;
 
-    private EditText et_name;
-    private EditText telefono;
+    private EditText et_name,telefono;
     private Button btn_enviar;
 
     @Override
@@ -39,11 +40,21 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
         et_name = (EditText) findViewById(R.id.name);
         telefono = (EditText) findViewById(R.id.numero);
         btn_enviar = (Button) findViewById(R.id.btn_enviar);
+
         btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CompletaPerfil.this,MainScreen.class);
-                startActivity(intent);
+
+
+                if (et_name.getText().toString().trim().length() > 0 && et_name.getText().toString().trim().length() <= 20){
+                    if (telefono.getText().toString().trim().length() > 0){
+                        SalvarDatos();
+                    }else{
+                        Snackbar.make(view, "ERROR", Snackbar.LENGTH_LONG).show();
+                    }
+                }else{
+                    Snackbar.make(view, "ERROR", Snackbar.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -55,7 +66,6 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(CompletaPerfil.this, LoginActivity.class);
             startActivity(intent);
         }
-        btn_enviar.setOnClickListener(this);
     }
 
     private void SalvarDatos(){
@@ -73,9 +83,5 @@ public class CompletaPerfil extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
 
     }
-    @Override
-    public void onClick(View view) {
-            SalvarDatos();
 
-    }
 }

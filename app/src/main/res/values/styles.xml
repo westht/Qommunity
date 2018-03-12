@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/ColorPrimario</item>
         <item name="colorPrimaryDark">@color/ColorPrimarioOscuro</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/ColorPrimario</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,5 +16,13 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Counter" parent="TextAppearance.Design.Counter">
+        <item name="android:textColor">@color/ColorPrimario</item>
+    </style>
+
+    <style name="CounterOverFlow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textColor">#ff3333</item>
+    </style>
 
 </resources>

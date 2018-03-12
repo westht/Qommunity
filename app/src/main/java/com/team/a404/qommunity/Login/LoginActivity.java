@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -15,11 +16,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.team.a404.qommunity.MainScreen;
+import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by Sergio Cuadrado on 22/01/2018.
@@ -33,6 +47,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected TextView nopass;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private DatabaseReference DataRef = FirebaseDatabase.getInstance().getReference().child("usuarios");
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +69,54 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (firebaseAuth.getCurrentUser() != null) {
             //prfi
             finish();
-            Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
-            startActivity(intent1);
+            FirebaseUser usuario = firebaseAuth.getCurrentUser();
+            DataRef.child(usuario.getUid());
+            DataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(final DataSnapshot dataSnapshot) {
+                    ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
+                    FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
+                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios/"+usero.getUid());
+                    mDatabase.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            UserInformation user = dataSnapshot.getValue(UserInformation.class);
+
+
+                            try {
+                                if (user.getPersonName() != null || user.getTel() != null){
+                                    Intent intent = new Intent(LoginActivity.this, MainScreen.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                }else{
+                                    Intent intent = new Intent(LoginActivity.this, CompletaPerfil.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                }
+                            }catch (Exception x){
+                                Intent intent = new Intent(LoginActivity.this, CompletaPerfil.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
         }
         sincuenta.setOnClickListener(new View.OnClickListener() {
@@ -104,8 +167,54 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
                             finish();
-                            Intent intent1 = new Intent(LoginActivity.this, MainScreen.class);
-                            startActivity(intent1);
+                            FirebaseUser usuario = firebaseAuth.getCurrentUser();
+                            DataRef.child(usuario.getUid());
+                            DataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(final DataSnapshot dataSnapshot) {
+                                    ArrayList<UserInformation> userlist = new ArrayList<UserInformation>();
+                                    FirebaseUser usero = FirebaseAuth.getInstance().getCurrentUser();
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usuarios/"+usero.getUid());
+                                    mDatabase.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                            UserInformation user = dataSnapshot.getValue(UserInformation.class);
+
+
+                                            try {
+                                                if (user.getPersonName() != null || user.getTel() != null){
+                                                    Intent intent = new Intent(LoginActivity.this, MainScreen.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    startActivity(intent);
+                                                }else{
+                                                    Intent intent = new Intent(LoginActivity.this, CompletaPerfil.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                    startActivity(intent);
+                                                }
+                                            }catch (Exception x){
+                                                Intent intent = new Intent(LoginActivity.this, CompletaPerfil.class);
+                                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                startActivity(intent);
+                                            }
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
                         }else{
                             Snackbar.make(log, getString(R.string.nolog), Snackbar.LENGTH_LONG).setAction("Action", null).show();
                         }
