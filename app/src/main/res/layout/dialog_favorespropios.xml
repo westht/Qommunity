@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
@@ -14,7 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="50"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="50"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -37,7 +41,9 @@
     <TextView
         android:id="@+id/comunidadmifav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -50,7 +56,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="50"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -62,7 +70,9 @@
         android:id="@+id/usuariofav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="50"/>
+        android:ems="50"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/finalizafavor"

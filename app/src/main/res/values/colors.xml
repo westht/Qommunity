@@ -6,4 +6,5 @@
     <color name="ColorPrimario">#008393</color>
     <color name="ColorSecundario">#f4aa17</color>
     <color name="ColorPrimarioOscuro">#006f7c</color>
+    <color name="negro">#000000</color>
 </resources>

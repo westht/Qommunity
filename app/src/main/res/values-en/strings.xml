@@ -4,6 +4,13 @@
     <string name="username">E-mail</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
+
+    <string name="title_MainListFvores">Mis Favores</string>
+    <string name="title_activity_main_list_favores">MainListFavores</string>
+    <string name="title_activity_list_favores">ListFavores</string>
+    <string name="pref_header_general">General</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="no_tengo_una_cuenta">I don\'t have an account.</string>
     <string name="title_activity_forget_pwd">Forgot your password?</string>
     <string name="title_activity_main_screen">Your Qommunity</string>
@@ -51,7 +58,7 @@
     <string name="unirdirec">Address: </string>
     <string name="botonunir">Join</string>
     <string name="desunirboton">Exit</string>
-    <string name="spinerdatocom">Seleccione una comunidad</string>
+    <string name="spinerdatocom">Select a community</string>
     <string name="guardadatos">Changes were saved</string>
     <string name="guardaimagen">Image saved</string>
     <string name="registra">New account created</string>
@@ -74,4 +81,5 @@
     <string name="favorelimina">Finalize Favor</string>
     <string name="sinuser">Nobody has accepted this favor yet</string>
     <string name="aceptadopor">Accepted by :</string>
+    <string name="title_activity_list_favores_add">Create Favor</string>
 </resources>
