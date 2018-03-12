@@ -119,8 +119,6 @@ public class ListFavores_my extends Fragment {
                 hora.setText(favores.get(i).getHora().toString());
                 String uiduser = favores.get(i).getUsuario_acepta();
                 try {
-
-                    if (!uiduser.isEmpty()||uiduser!=null) {
                         final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
                         DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -136,11 +134,8 @@ public class ListFavores_my extends Fragment {
 
                             }
                         });
-
-                    } else {
-                        nombreuser.setText(getString(R.string.sinuser));
-                    }
                 } catch (NullPointerException e) {
+                    nombreuser.setText(getString(R.string.sinuser));
                     Log.v("C", "Sin nada");
                 }
 

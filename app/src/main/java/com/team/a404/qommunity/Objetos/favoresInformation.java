@@ -13,7 +13,7 @@ public class favoresInformation {
     private String estado;
 
 
-    private String usuario_acepta;
+    private String usuarioacepta;
 
     public String getDescripcion() {
         return descripcion;
@@ -35,20 +35,20 @@ public class favoresInformation {
         return estado;
     }
     public String getUsuario_acepta() {
-        return usuario_acepta;
+        return usuarioacepta;
     }
 
 
     public favoresInformation() {
     }
 
-    public favoresInformation(String descripcion, String fecha, String hora, String usuario, String estado,String usuario_acepta) {
+    public favoresInformation(String descripcion, String fecha, String hora, String usuario, String estado,String usuarioacepta) {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.hora = hora;
         this.usuario = usuario;
         this.estado = estado;
-        this.usuario_acepta = usuario_acepta;
+        this.usuarioacepta = usuarioacepta;
     }
 
 }

@@ -117,8 +117,9 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                 DataRef.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
                         try{
+                        favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
+
                             if (favor.getEstado().equals("pendiente")) {
                                 arrayList.add(dataSnapshot.getKey());
                                 favores.add(favor);
@@ -193,7 +194,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                                 mbase.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
                                 DatabaseReference mbase2 = FirebaseDatabase.getInstance().getReference("comunidades").child(spinnercomunidades.getSelectedItem().toString()).child("favores");
                                 mbase2.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
-                                mbase2.child(arrayList.get(i).toString()).child("usuario_acepta").setValue(fbuser.getUid().toString().trim());
+                                mbase2.child(arrayList.get(i).toString()).child("usuarioacepta").setValue(fbuser.getUid().toString());
                                 lista_de_favores.invalidateViews();
 
                                 Toast.makeText(MainScreen.this, getString(R.string.yaaceptado), Toast.LENGTH_SHORT).show();
