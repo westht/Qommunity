@@ -2,7 +2,6 @@ package com.team.a404.qommunity.Favores;
 
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,16 +24,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.team.a404.qommunity.Comunidad.CrearComunidad;
-import com.team.a404.qommunity.Login.LoginActivity;
-import com.team.a404.qommunity.MainActivity;
-import com.team.a404.qommunity.MainScreen;
 import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.Objetos.favoresInformation;
 import com.team.a404.qommunity.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Thread.sleep;
 
@@ -47,7 +40,9 @@ public class ListFavores_my extends Fragment {
     private ListView listafav;
     private FirebaseAuth firebaseAuth;
     private ArrayList<String> arrayList = new ArrayList<>();
-    private EditText desc, fecha, hora;
+    private TextView desc;
+    private TextView fecha;
+    private TextView hora,comunidad;
     private TextView nombreuser;
     private Button finalizafav;
     private ArrayList<favoresInformation> favores = new ArrayList<>();
@@ -103,20 +98,22 @@ public class ListFavores_my extends Fragment {
         });
         listafav.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
                 final Dialog dialog = new Dialog(getContext());
                 dialog.setTitle("Detalles del favor");
                 dialog.setContentView(R.layout.dialog_favorespropios);
                 dialog.show();
-                desc = (EditText) dialog.findViewById(R.id.descripfav);
-                fecha = (EditText) dialog.findViewById(R.id.diafav);
-                hora = (EditText) dialog.findViewById(R.id.horafav);
+                desc = (TextView) dialog.findViewById(R.id.descripfav);
+                fecha = (TextView) dialog.findViewById(R.id.diafav);
+                hora = (TextView) dialog.findViewById(R.id.horafav);
                 nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                 finalizafav = (Button) dialog.findViewById(R.id.finalizafavor);
+                comunidad = (TextView)dialog.findViewById(R.id.comunidadmifav);
                 desc.setText(favores.get(i).getDescripcion().toString());
                 fecha.setText(favores.get(i).getFecha().toString());
                 hora.setText(favores.get(i).getHora().toString());
+                comunidad.setText(favores.get(i).getComunidad());
 
 
                 try {
@@ -141,9 +138,56 @@ public class ListFavores_my extends Fragment {
                     Log.v("C", "Sin nada");
                 }
 
+                finalizafav.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        try {
+                            final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(favores.get(i).getUsuario().toString()).child("favores_finalizados").child(arrayList.get(i).toString());
+                            DataRefe.child("descripcion").setValue(favores.get(i).getDescripcion().toString());
+                            DataRefe.child("comunidad").setValue(favores.get(i).getComunidad().toString());
+                            DataRefe.child("fecha").setValue(favores.get(i).getComunidad().toString());
+                            DataRefe.child("hora").setValue(favores.get(i).getComunidad().toString());
 
+                       /* final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("comunidades").child(favores.get(i).getComunidad().toString()).child("favores").child(arrayList.get(i).toString());
+                        DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                                    child.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                        final DatabaseReference DataReferencia2 = FirebaseDatabase.getInstance().getReference("comunidades").child(fbuser.getUid()).child("favores").child(arrayList.get(i).toString());
+                        DataReferencia2.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot child: dataSnapshot.getChildren()) {
+                                    child.getRef().removeValue();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });*/
+
+                        }catch (NullPointerException e){
+                            Log.v("C", "Sin nada");
+                        }
+
+
+
+                    }
+                });
             }
         });
+
         return rootView;
     }
 }
