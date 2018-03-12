@@ -33,7 +33,7 @@ public class ListaComunidad extends AppCompatActivity  {
     private FirebaseAuth firebaseAuth;
     private DatabaseReference DataRef;
     private DatabaseReference DataRef2;
-    private TextView nombcomuni;
+    private TextView nombcomuni,direccomuni;
     private Button unirse, quitarse;
     private ArrayList<String> arraycomunidades = new ArrayList<>();
 
@@ -61,13 +61,15 @@ public class ListaComunidad extends AppCompatActivity  {
                 dialog.setContentView(R.layout.dialogunircomunidad);
                 dialog.show();
                 nombcomuni = (TextView)dialog.findViewById(R.id.NombreCom);
+                direccomuni = (TextView)dialog.findViewById(R.id.DirecCom);
                 unirse = (Button)dialog.findViewById(R.id.buttonjoin);
                 quitarse = (Button)dialog.findViewById(R.id.buttonborrar);
                 String [] arr0 = arraycomunidades.get(i).split(":");
                 final String nombre = arr0[0].toString().trim();
                 final String direccion = arr0[1].toString().trim();
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
-                nombcomuni.setText(getString(R.string.comnombreunir)+"\n"+nombre+"\n"+getString(R.string.unirdirec)+"\n"+direccion);
+                nombcomuni.setText(nombre);
+                direccomuni.setText(direccion);
                 unirse.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

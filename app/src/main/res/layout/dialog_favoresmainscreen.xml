@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="320dp"
-    android:layout_height="500dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -10,8 +10,10 @@
         android:text="@string/crea_descfavor"
         android:ems="50"/>
 
-    <EditText
+    <TextView
         android:id="@+id/descripfav"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="50"
@@ -23,9 +25,11 @@
         android:text="@string/diafavor"
         android:ems="50"/>
 
-    <EditText
+    <TextView
         android:id="@+id/diafav"
         android:layout_width="match_parent"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
         android:ems="50"
         android:inputType="textPersonName" />
@@ -36,11 +40,13 @@
         android:text="@string/horafavor"
         android:ems="50"/>
 
-    <EditText
+    <TextView
         android:id="@+id/horafav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="50"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
         android:inputType="textPersonName" />
 
     <TextView
@@ -53,6 +59,8 @@
         android:id="@+id/usuariofav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
         android:ems="50"/>
 
     <Button

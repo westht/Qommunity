@@ -3,5 +3,63 @@
     android:layout_width="320dp"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:text="@string/crea_descfavor" />
+
+    <TextView
+        android:id="@+id/descripfav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diafavor"
+        android:ems="50"/>
+
+    <TextView
+        android:id="@+id/diafav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comnombreunir" />
+
+    <TextView
+        android:id="@+id/comunidadmifav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/horafavor"
+        android:ems="50"/>
+
+    <TextView
+        android:id="@+id/horafav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName"
+        android:textColor="@color/negro"
+        android:textSize="18sp"/>
+
 
 </LinearLayout>

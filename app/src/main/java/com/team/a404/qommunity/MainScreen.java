@@ -47,7 +47,9 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
     private ListView lista_de_favores;
     private Spinner spinnercomunidades;
     SwipeRefreshLayout swipeRefreshLayout;
-    private EditText desc, fecha, hora;
+    private TextView desc;
+    private TextView fecha;
+    private TextView hora;
     private TextView nombreuser;
     private Button aceptafav;
 
@@ -159,9 +161,9 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                         dialog.setTitle("Detalles del favor");
                         dialog.setContentView(R.layout.dialog_favoresmainscreen);
                         dialog.show();
-                        desc = (EditText) dialog.findViewById(R.id.descripfav);
-                        fecha = (EditText) dialog.findViewById(R.id.diafav);
-                        hora = (EditText) dialog.findViewById(R.id.horafav);
+                        desc = (TextView) dialog.findViewById(R.id.descripfav);
+                        fecha = (TextView) dialog.findViewById(R.id.diafav);
+                        hora = (TextView) dialog.findViewById(R.id.horafav);
                         nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                         aceptafav = (Button) dialog.findViewById(R.id.aceptar);
                         String uiduser = favores.get(i).getUsuario();

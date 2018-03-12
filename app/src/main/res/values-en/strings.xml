@@ -82,4 +82,5 @@
     <string name="sinuser">Nobody has accepted this favor yet</string>
     <string name="aceptadopor">Accepted by :</string>
     <string name="title_activity_list_favores_add">Create Favor</string>
+    <string name="vacio">... </string>
 </resources>

@@ -62,6 +62,7 @@
     <string name="yacreado">Favor creado</string>
     <string name="sinuser">Nadie ha aceptado el favor todavía</string>
     <string name="aceptadopor">Aceptado por :</string>
+    <string name="vacio">... </string>
 
 
     <!-- Strings related to Settings -->

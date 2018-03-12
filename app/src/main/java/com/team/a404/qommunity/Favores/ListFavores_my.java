@@ -110,10 +110,17 @@ public class ListFavores_my extends Fragment {
                 nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                 finalizafav = (Button) dialog.findViewById(R.id.finalizafavor);
                 comunidad = (TextView) dialog.findViewById(R.id.comunidadmifav);
-                desc.setText(favores.get(i).getDescripcion().toString());
-                fecha.setText(favores.get(i).getFecha().toString());
-                hora.setText(favores.get(i).getHora().toString());
-                comunidad.setText(favores.get(i).getComunidad());
+                try {
+                    desc.setText(favores.get(i).getDescripcion().toString());
+                    fecha.setText(favores.get(i).getFecha().toString());
+                    hora.setText(favores.get(i).getHora().toString());
+                    comunidad.setText(favores.get(i).getComunidad());
+                }catch (NullPointerException e){
+                    desc.setText(getString(R.string.vacio));
+                    fecha.setText(getString(R.string.vacio));
+                    hora.setText(getString(R.string.vacio));
+                    comunidad.setText(getString(R.string.vacio));
+                }
 
 
                 try {

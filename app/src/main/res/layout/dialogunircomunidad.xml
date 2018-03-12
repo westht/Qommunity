@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="320dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:ems="50"
+        android:layout_height="wrap_content"
+        android:text="@string/comnombreunir" />
+
+    <TextView
         android:id="@+id/NombreCom"
         android:layout_width="match_parent"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:ems="50"/>
+        android:ems="50" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:ems="50"
+        android:layout_height="wrap_content"
+        android:text="@string/unirdirec" />
+
+    <TextView
+        android:id="@+id/DirecCom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
+        android:ems="50" />
 
     <Button
         android:id="@+id/buttonjoin"

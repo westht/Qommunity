@@ -1,6 +1,7 @@
 package com.team.a404.qommunity.Favores;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,7 +32,7 @@ import java.util.ArrayList;
 public class ListFavores_final extends Fragment {
     private ListView listafinal;
     private FirebaseAuth firebaseAuth;
-    private ArrayList<String> arrayaceptado = new ArrayList<>();
+    private ArrayList<String> arrayfinal = new ArrayList<>();
     private TextView desc;
     private TextView fecha;
     private TextView hora, comunidad;
@@ -47,17 +49,20 @@ public class ListFavores_final extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list_favores_final, container, false);
-        arrayaceptado.clear();
+        favores.clear();
+        arrayfinal.clear();
         listafinal = (ListView) rootView.findViewById(R.id.listafinalizados);
         firebaseAuth = FirebaseAuth.getInstance();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, arrayaceptado);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, arrayfinal);
         listafinal.setAdapter(arrayAdapter);
         final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
         final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("favores_finalizados");
         DataRefe.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                arrayaceptado.add(dataSnapshot.getKey());
+                favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
+                favores.add(favor);
+                arrayfinal.add(dataSnapshot.getKey());
                 arrayAdapter.notifyDataSetChanged();
 
             }
@@ -85,6 +90,18 @@ public class ListFavores_final extends Fragment {
         listafinal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.setTitle("Detalles del favor");
+                dialog.setContentView(R.layout.dialog_favoresfinal);
+                dialog.show();
+                desc = (TextView) dialog.findViewById(R.id.descripfav);
+                fecha = (TextView) dialog.findViewById(R.id.diafav);
+                hora = (TextView) dialog.findViewById(R.id.horafav);
+                comunidad = (TextView) dialog.findViewById(R.id.comunidadmifav);
+                desc.setText(favores.get(i).getDescripcion().toString());
+                fecha.setText(favores.get(i).getFecha().toString());
+                hora.setText(favores.get(i).getHora().toString());
+                comunidad.setText(favores.get(i).getComunidad());
 
             }
         });
