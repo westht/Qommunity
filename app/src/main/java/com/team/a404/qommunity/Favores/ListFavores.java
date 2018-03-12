@@ -105,7 +105,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                 fechafav = (EditText) dialog.findViewById(R.id.CogerFecha);
                 horafav = (EditText) dialog.findViewById(R.id.horafavor);
                 creafav = (Button) dialog.findViewById(R.id.creafav);
-                spinnercommunidades = (Spinner)dialog.findViewById(R.id.spincomuni);
+                spinnercommunidades = (Spinner) dialog.findViewById(R.id.spincomuni);
                 final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("comunidades");
                 final DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("usuarios");
                 final FirebaseUser fbuser = firebaseAuth.getCurrentUser();
@@ -114,7 +114,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         final List<String> areas = new ArrayList<String>();
-                        for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
+                        for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
                             String areaName = areaSnapshot.getKey();
                             areas.add(areaName);
                         }
@@ -336,10 +336,14 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
 
             switch (position) {
                 case 0:
+
                     return new ListFavores_my();
+
                 case 1:
+
                     return new ListFavores_aceptado();
                 case 2:
+
                     return new ListFavores_final();
                 default:
                     return null;
@@ -382,7 +386,6 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
             finish();
         } else if (id == R.id.nav_mis_favores) {
 
-        } else if (id == R.id.nav_chats) {
 
         } /*else if (id == R.id.logout) {
             finish();
@@ -392,7 +395,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
-        } */else if (id == R.id.nav_comunidades) {
+        } */ else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {

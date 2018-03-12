@@ -61,6 +61,8 @@
     <string name="hello">Hola ,</string>
     <string name="yaaceptado">Favor aceptado</string>
     <string name="yacreado">Favor creado</string>
+    <string name="sinuser">Nadie ha aceptado el favor todavía</string>
+    <string name="aceptadopor">Aceptado por :</string>
 
 
     <!-- Strings related to Settings -->
@@ -151,6 +153,7 @@
     <string name="cambiacontraseña">Cambiar contraseña</string>
     <string name="creadopor">Creado por</string>
     <string name="aceptar">Aceptar favor</string>
+    <string name="favorelimina">Finalizar favor</string>
 
 
 </resources>

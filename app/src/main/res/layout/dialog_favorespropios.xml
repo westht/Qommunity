@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/crea_descfavor"
+        android:ems="50"/>
+
+    <EditText
+        android:id="@+id/descripfav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diafavor"
+        android:ems="50"/>
+
+    <EditText
+        android:id="@+id/diafav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/horafavor"
+        android:ems="50"/>
+
+    <EditText
+        android:id="@+id/horafav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"
+        android:text="@string/aceptadopor" />
+
+    <TextView
+        android:id="@+id/usuariofav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="50"/>
+
+    <Button
+        android:id="@+id/finalizafavor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:ems="50"
+        android:text="@string/favorelimina"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+</LinearLayout>

@@ -71,4 +71,7 @@
     <string name="aceptar">Accept favor</string>
     <string name="yaaceptado">Favor Accepted</string>
     <string name="yacreado">Favor Created</string>
+    <string name="favorelimina">Finalize Favor</string>
+    <string name="sinuser">Nobody has accepted this favor yet</string>
+    <string name="aceptadopor">Accepted by :</string>
 </resources>

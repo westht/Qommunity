@@ -118,13 +118,16 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                         favoresInformation favor = dataSnapshot.getValue(favoresInformation.class);
-                        if (favor.getEstado().equals("pendiente")) {
-                            arrayList.add(dataSnapshot.getKey());
-                            favores.add(favor);
-                            adapter.notifyDataSetChanged();
+                        try{
+                            if (favor.getEstado().equals("pendiente")) {
+                                arrayList.add(dataSnapshot.getKey());
+                                favores.add(favor);
+                                adapter.notifyDataSetChanged();
 
-                        }if(favor.getEstado()==null){
+                            }
+                        }catch (NullPointerException e){
                             Log.v("C", "Sin nada");
+
                         }
                     }
 
@@ -150,7 +153,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                 });
                 lista_de_favores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
                         final Dialog dialog = new Dialog(MainScreen.this);
                         dialog.setTitle("Detalles del favor");
                         dialog.setContentView(R.layout.dialog_favoresmainscreen);
@@ -182,6 +185,17 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                         aceptafav.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                DatabaseReference mbase = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("favores_aceptados");
+                                mbase.child(arrayList.get(i).toString()).child("descripcion").setValue(desc.getText().toString());
+                                mbase.child(arrayList.get(i).toString()).child("fecha").setValue(fecha.getText().toString());
+                                mbase.child(arrayList.get(i).toString()).child("hora").setValue(hora.getText().toString());
+                                mbase.child(arrayList.get(i).toString()).child("comunidad").setValue(spinnercomunidades.getSelectedItem().toString());
+                                mbase.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
+                                DatabaseReference mbase2 = FirebaseDatabase.getInstance().getReference("comunidades").child(spinnercomunidades.getSelectedItem().toString()).child("favores");
+                                mbase2.child(arrayList.get(i).toString()).child("estado").setValue("aceptado");
+                                mbase2.child(arrayList.get(i).toString()).child("usuario_acepta").setValue(fbuser.getUid().toString().trim());
+                                lista_de_favores.invalidateViews();
+
                                 Toast.makeText(MainScreen.this, getString(R.string.yaaceptado), Toast.LENGTH_SHORT).show();
                                 dialog.hide();
                             }
@@ -262,16 +276,15 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
-        } else if (id == R.id.nav_chats) {
-
-        } /*else if (id == R.id.logout) {
+       /*else if (id == R.id.logout) {
             finish();
             firebaseAuth.signOut();
             Intent intent = new Intent(this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } */ else if (id == R.id.nav_comunidades) {
+        } }*/
+        } else if (id == R.id.nav_comunidades) {
             Intent intent = new Intent(this, ListaComunidad.class);
             startActivity(intent);
         } else if (id == R.id.opcions) {

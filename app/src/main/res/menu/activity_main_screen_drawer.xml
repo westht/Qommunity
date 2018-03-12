@@ -16,10 +16,6 @@
             android:id="@+id/nav_comunidades"
             android:icon="@drawable/community"
             android:title="@string/comunidades_drawer" />
-        <item
-            android:id="@+id/nav_chats"
-            android:icon="@drawable/icon_chats"
-            android:title="Chats" />
     </group>
 
     <group>
