@@ -187,7 +187,7 @@ public class ListFavores extends AppCompatActivity implements NavigationView.OnN
                         mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("fecha").setValue(fecha);
                         mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("hora").setValue(hora);
                         mDatabase2.child(fbuser.getUid()).child("favores").child(nombre).child("estado").setValue("pendiente");
-                        dialog.hide();
+                        dialog.dismiss();
 
 
                     }

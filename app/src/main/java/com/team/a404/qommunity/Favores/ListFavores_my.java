@@ -42,7 +42,7 @@ public class ListFavores_my extends Fragment {
     private ArrayList<String> arrayList = new ArrayList<>();
     private TextView desc;
     private TextView fecha;
-    private TextView hora,comunidad;
+    private TextView hora, comunidad;
     private TextView nombreuser;
     private Button finalizafav;
     private ArrayList<favoresInformation> favores = new ArrayList<>();
@@ -109,7 +109,7 @@ public class ListFavores_my extends Fragment {
                 hora = (TextView) dialog.findViewById(R.id.horafav);
                 nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                 finalizafav = (Button) dialog.findViewById(R.id.finalizafavor);
-                comunidad = (TextView)dialog.findViewById(R.id.comunidadmifav);
+                comunidad = (TextView) dialog.findViewById(R.id.comunidadmifav);
                 desc.setText(favores.get(i).getDescripcion().toString());
                 fecha.setText(favores.get(i).getFecha().toString());
                 hora.setText(favores.get(i).getHora().toString());
@@ -117,22 +117,22 @@ public class ListFavores_my extends Fragment {
 
 
                 try {
-                        String uiduser = favores.get(i).getUsuario().toString();
-                        final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
-                        DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                UserInformation usr = dataSnapshot.getValue(UserInformation.class);
-                                nombreuser.setText(usr.getPersonName().toString());
+                    String uiduser = favores.get(i).getUsuario().toString();
+                    final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
+                    DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            UserInformation usr = dataSnapshot.getValue(UserInformation.class);
+                            nombreuser.setText(usr.getPersonName().toString());
 
 
-                            }
+                        }
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                            }
-                        });
+                        }
+                    });
                 } catch (NullPointerException e) {
                     nombreuser.setText(getString(R.string.sinuser));
                     Log.v("C", "Sin nada");
@@ -145,43 +145,44 @@ public class ListFavores_my extends Fragment {
                             final DatabaseReference DataRefe = FirebaseDatabase.getInstance().getReference("usuarios").child(favores.get(i).getUsuario().toString()).child("favores_finalizados").child(arrayList.get(i).toString());
                             DataRefe.child("descripcion").setValue(favores.get(i).getDescripcion().toString());
                             DataRefe.child("comunidad").setValue(favores.get(i).getComunidad().toString());
-                            DataRefe.child("fecha").setValue(favores.get(i).getComunidad().toString());
-                            DataRefe.child("hora").setValue(favores.get(i).getComunidad().toString());
+                            DataRefe.child("fecha").setValue(favores.get(i).getFecha().toString());
+                            DataRefe.child("hora").setValue(favores.get(i).getHora().toString());
 
-                       /* final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("comunidades").child(favores.get(i).getComunidad().toString()).child("favores").child(arrayList.get(i).toString());
-                        DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot child: dataSnapshot.getChildren()) {
-                                    child.getRef().removeValue();
+
+                            final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("comunidades").child(favores.get(i).getComunidad().toString()).child("favores").child(arrayList.get(i).toString());
+                            DataReferencia.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                        child.getRef().removeValue();
+                                    }
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
 
-                            }
-                        });
-                        final DatabaseReference DataReferencia2 = FirebaseDatabase.getInstance().getReference("comunidades").child(fbuser.getUid()).child("favores").child(arrayList.get(i).toString());
-                        DataReferencia2.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot child: dataSnapshot.getChildren()) {
-                                    child.getRef().removeValue();
                                 }
-                            }
+                            });
+                            final DatabaseReference DataReferencia2 = FirebaseDatabase.getInstance().getReference("usuarios").child(fbuser.getUid()).child("favores").child(arrayList.get(i).toString());
+                            DataReferencia2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                                        child.getRef().removeValue();
+                                    }
+                                }
 
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
 
-                            }
-                        });*/
+                                }
+                            });
 
-                        }catch (NullPointerException e){
+                        } catch (NullPointerException e) {
                             Log.v("C", "Sin nada");
                         }
 
-
+                        dialog.dismiss();
 
                     }
                 });

@@ -200,7 +200,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                                 lista_de_favores.invalidateViews();
 
                                 Toast.makeText(MainScreen.this, getString(R.string.yaaceptado), Toast.LENGTH_SHORT).show();
-                                dialog.hide();
+                                dialog.dismiss();
                             }
                         });
 
