@@ -4,15 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/ColorPrimario"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/TextView_completa"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="36sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -22,9 +36,9 @@
             android:layout_marginRight="15dp"
             android:orientation="horizontal"
             android:textColorHint="@color/ColorPrimario"
+
             app:counterEnabled="true"
             app:counterMaxLength="20"
-
             app:counterOverflowTextAppearance="@style/CounterOverFlow"
             app:counterTextAppearance="@style/Counter"
             app:errorEnabled="true">
@@ -36,8 +50,7 @@
                 android:backgroundTint="@color/ColorPrimario"
                 android:ems="10"
                 android:hint="@string/nombre"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -67,6 +80,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -75,7 +91,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"
-            android:layout_weight="1"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/enviar_datos"
             android:textColor="@android:color/white" />

@@ -35,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.team.a404.qommunity.Ajustes.Ajustes;
 import com.team.a404.qommunity.Comunidad.ListaComunidad;
 import com.team.a404.qommunity.Favores.ListFavores;
+import com.team.a404.qommunity.Login.CompletaPerfil;
 import com.team.a404.qommunity.Objetos.UserInformation;
 import com.team.a404.qommunity.Objetos.favoresInformation;
 
@@ -250,8 +251,12 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                 userlist.add(user);
                 try{
                     id_nombre.setText(getString(R.string.hello) + user.getPersonName());
+                    String numero = user.getTel();
                 } catch(Exception x){
-                    //id_nombre.setText(getString(R.string.hello));
+                    Intent intent = new Intent(MainScreen.this, CompletaPerfil.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 }
                 //id_email.setText(user.getEmail());
             }
