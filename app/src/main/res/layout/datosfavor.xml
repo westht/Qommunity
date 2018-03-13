@@ -2,90 +2,142 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="320dp"
     android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/spinerdatocom"
-        android:ems="50"/>
+        android:layout_height="wrap_content">
 
-    <Spinner
-        android:id="@+id/spincomuni"
-        android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:ems="50"
-        android:visibility="visible" />
-
-    <EditText
-        android:id="@+id/nombfavor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:ems="50"
-        android:hint="@string/crea_nombfavor"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/descripfavor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:ems="50"
-        android:hint="@string/crea_descfavor"
-        android:inputType="textMultiLine|textPersonName" />
-
-    <EditText
-        android:id="@+id/CogerFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:ems="50"
-        android:focusable="false"
-        android:hint="@string/diafavor"
-        android:inputType="none" />
-
-    ¡
-
-    <EditText
-        android:id="@+id/horafavor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:ems="50"
-        android:hint="@string/horafavor"
-        android:inputType="textPersonName" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/creafav"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorAccent"
-            android:text="@string/nuevofavorbot"
-            android:textColor="@color/common_google_signin_btn_text_dark_default" />
-    </FrameLayout>
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:ems="50"
+                android:text="@string/spinerdatocom" />
+
+            <Spinner
+                android:id="@+id/spincomuni"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:ems="50"
+                android:visibility="visible" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal"
+                android:textColorHint="@color/ColorPrimario"
+                app:counterEnabled="true"
+                app:counterMaxLength="35"
+
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:counterTextAppearance="@style/Counter"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/nombfavor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ColorPrimario"
+                    android:ems="10"
+                    android:hint="@string/crea_nombfavor"
+                    android:inputType="textPersonName"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="-10dp"
+                android:orientation="horizontal"
+                android:textColorHint="@color/ColorPrimario"
+                app:counterEnabled="true"
+
+                app:counterMaxLength="150"
+                app:counterOverflowTextAppearance="@style/CounterOverFlow"
+                app:counterTextAppearance="@style/Counter"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/descripfavor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ColorPrimario"
+                    android:ems="10"
+                    android:hint="@string/crea_descfavor"
+                    android:inputType="textMultiLine|textPersonName"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="-10dp"
+                android:orientation="horizontal"
+                android:textColorHint="@color/ColorPrimario">
+
+                <EditText
+                    android:id="@+id/CogerFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ColorPrimario"
+                    android:ems="50"
+                    android:focusable="false"
+                    android:hint="@string/diafavor"
+                    android:inputType="none" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <EditText
+                android:id="@+id/horafavor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:ems="50"
+                android:hint="@string/horafavor"
+                android:inputType="textPersonName" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="131dp">
+
+                <Button
+                    android:id="@+id/creafav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:background="@color/colorAccent"
+                    android:text="@string/nuevofavorbot"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
 
 
