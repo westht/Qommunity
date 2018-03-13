@@ -50,7 +50,6 @@ public class Ajustes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajustes);
-
         m_cerrar = (LinearLayout) findViewById(R.id.m_cerrar);
         m_pass = (LinearLayout) findViewById(R.id.m_pass);
         m_edit_perfil = (LinearLayout) findViewById(R.id.m_edit_perfil);
