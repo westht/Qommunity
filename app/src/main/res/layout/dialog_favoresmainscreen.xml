@@ -15,6 +15,7 @@
         android:textColor="@color/negro"
         android:textSize="18sp"
         android:layout_width="match_parent"
+        android:singleLine="false"
         android:layout_height="wrap_content"
         android:ems="50"
         android:inputType="textPersonName" />

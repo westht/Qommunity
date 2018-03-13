@@ -167,6 +167,7 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                         hora = (TextView) dialog.findViewById(R.id.horafav);
                         nombreuser = (TextView) dialog.findViewById(R.id.usuariofav);
                         aceptafav = (Button) dialog.findViewById(R.id.aceptar);
+                        desc.setSingleLine(false);
                         String uiduser = favores.get(i).getUsuario();
                         final DatabaseReference DataReferencia = FirebaseDatabase.getInstance().getReference("usuarios").child(uiduser);
                         desc.setText(favores.get(i).getDescripcion().toString());

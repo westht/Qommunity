@@ -99,6 +99,7 @@ public class ListFavores_aceptado extends Fragment {
                 hora = (TextView) dialog.findViewById(R.id.horafav);
                 comunidad = (TextView) dialog.findViewById(R.id.comunidadmifav);
                 desc.setText(favores.get(i).getDescripcion().toString());
+                desc.setSingleLine(false);
                 fecha.setText(favores.get(i).getFecha().toString());
                 hora.setText(favores.get(i).getHora().toString());
                 comunidad.setText(favores.get(i).getComunidad());
